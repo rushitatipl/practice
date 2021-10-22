@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tipltraineeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tipltrainee.trainee.Login' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Mobile" />
+      <PropertyRef Name="Password" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="tipltraineeModelStoreContainer">
+    <EntitySet Name="Login" EntityType="Self.Login" store:Type="Tables" store:Schema="trainee">
+      <DefiningQuery>SELECT 
+    [Login].[id] AS [id], 
+    [Login].[Mobile] AS [Mobile], 
+    [Login].[Password] AS [Password]
+    FROM [trainee].[Login] AS [Login]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

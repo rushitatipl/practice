@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tipltraineeModelStoreContainer" CdmEntityContainer="tipltraineeEntities">
+    <EntitySetMapping Name="ages">
+      <EntityTypeMapping TypeName="tipltraineeModel.age">
+        <MappingFragment StoreEntitySet="age">
+          <ScalarProperty Name="ageid" ColumnName="ageid" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="age1" ColumnName="age" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="families">
+      <EntityTypeMapping TypeName="tipltraineeModel.family">
+        <MappingFragment StoreEntitySet="family">
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="member" ColumnName="member" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

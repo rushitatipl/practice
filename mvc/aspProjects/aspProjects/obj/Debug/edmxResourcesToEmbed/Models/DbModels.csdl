@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tipltraineeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="age">
+    <Key>
+      <PropertyRef Name="ageid" />
+    </Key>
+    <Property Name="ageid" Type="Int32" Nullable="false" />
+    <Property Name="memberid" Type="Int32" Nullable="false" />
+    <Property Name="age1" Type="Int32" Nullable="false" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="family" Relationship="Self.FK_age" FromRole="age" ToRole="family" />
+  </EntityType>
+  <EntityType Name="family">
+    <Key>
+      <PropertyRef Name="memberid" />
+    </Key>
+    <Property Name="memberid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="member" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ages" Relationship="Self.FK_age" FromRole="family" ToRole="age" />
+    <Property Name="relation" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_age">
+    <End Role="family" Type="Self.family" Multiplicity="1" />
+    <End Role="age" Type="Self.age" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="family">
+        <PropertyRef Name="memberid" />
+      </Principal>
+      <Dependent Role="age">
+        <PropertyRef Name="memberid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DbModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ages" EntityType="Self.age" />
+    <EntitySet Name="families" EntityType="Self.family" />
+    <AssociationSet Name="FK_age" Association="Self.FK_age">
+      <End Role="family" EntitySet="families" />
+      <End Role="age" EntitySet="ages" />
+    </AssociationSet>
+    <EntitySet Name="students" EntityType="tipltraineeModel.student" />
+  </EntityContainer>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="studentID" />
+    </Key>
+    <Property Name="studentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="studentName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="mobile" Type="Int64" Nullable="false" />
+    <Property Name="isactive" Type="Boolean" />
+  </EntityType>
+</Schema>

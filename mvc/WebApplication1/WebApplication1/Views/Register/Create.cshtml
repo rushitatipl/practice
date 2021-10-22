@@ -1,0 +1,206 @@
+﻿@model WebApplication1.Models.Register
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+}
+
+
+
+@Styles.Render("~/Content/css / bootstrap / bootstrap.min.css")
+@Styles.Render("~/Content/css/font-awesome/all.css")
+@Styles.Render("~/Content/css / owl-carousel / owl.carousel.min.css")
+@Styles.Render("~/Content/css/style.css")
+@Styles.Render("~/Content/css / media.css")
+
+<div id="main-container" class="main-container">
+    <div id="inner-container" class="inner-container">
+
+        <div id="middle">
+            <section class="common-section collegebol-predictor-section">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1 class="cmn-heading">Register</h1>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="register-step-cnt">
+                                    <div class="register-steps-area">
+                                        <ul>
+                                            <li class="active"><span>1</span></li>
+                                            <li><span>2</span></li>
+                                            <li><span>3</span></li>
+                                            <li><span>4</span></li>
+                                        </ul>
+                                    </div>
+                                    <div class="register-steps-form">
+                                        <h2 class="cmn-blk-hd">Sign Up Basic Details</h2>
+
+                                        <div class="form-row">
+                                            @Html.LabelFor(model => model.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                            @Html.Label("Male")
+                                            @Html.RadioButtonFor(model => model.Gender, "M")
+                                            @Html.Label("FeMale")
+                                            @Html.RadioButtonFor(model => model.Gender, "F")
+                                            @Html.Label("Othres")
+                                            @Html.RadioButtonFor(model => model.Gender, "O")
+                                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-row">
+                                                    <div class="form-label"> @Html.LabelFor(model => model.Firstname, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                                    <div class="form-cnt-area">
+                                                        @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+
+
+
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-row">
+                                                    <div class="form-label">@Html.LabelFor(model => model.Lastname, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                                    <div class="form-cnt-area">
+                                                        @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+
+
+                                            </div>
+
+
+
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-row">
+                                                    <div class="form-label"> @Html.LabelFor(model => model.Mobile, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                                    <div class="form-cnt-area">
+                                                        @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="col-md-6">
+
+                                                <div class="form-row">
+                                                    <div class="form-label"> @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                                    <div class="form-cnt-area">
+                                                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+
+                                            </div>
+
+
+
+
+
+                                            <div class="col-md-6">
+
+
+                                                <div class="form-row">
+                                                    <div class="form-label"> @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                                    <div class="form-cnt-area">
+                                                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-6">
+
+
+                                                <div class="form-row">
+                                                    <div class="form-label"> @Html.LabelFor(model => model.Cpassword, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                                    <div class="form-cnt-area">
+                                                        @Html.EditorFor(model => model.Cpassword, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Cpassword, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <div class="form-row">
+                                                    <div class="form-label">@Html.LabelFor(model => model.Profile, htmlAttributes: new { @class = "control-label col-md-2" })</div>
+                                                    <div class="form-cnt-area">
+                                                        @Html.EditorFor(model => model.Profile, new { htmlAttributes = new { @class = "form-control" } })
+                                                        @Html.ValidationMessageFor(model => model.Profile, "", new { @class = "text-danger" })
+                                                    </div>
+                                                    <div class="clear"></div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="col-lg-12">
+                                            <div class="text-center">
+                                                @*<a href="#" class="cmn-btn">Next</a>*@
+                                                <input type="submit" value="Create" class="cmn-btn" />
+
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                }
+            </section>
+
+
+        </div>
+    </div>
+
+</div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/Content/jquery.min.js")
+    @Scripts.Render("~/Content/bootstrap/popper.min.js")
+    @Scripts.Render("~/Content/bootstrap/bootstrap.min.js")
+    @Scripts.Render("~/Content/custom.js")
+    @Scripts.Render("~/Content/owl-carousel/owl.carousel.js")
+
+    @*<script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap/popper.min.js"></script>
+        <script src="js/bootstrap/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="js/owl-carousel/owl.carousel.js"></script>*@
+}

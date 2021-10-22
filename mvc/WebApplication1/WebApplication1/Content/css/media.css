@@ -1,0 +1,273 @@
+@media screen and (max-width:1279px) {
+body { -webkit-text-size-adjust: none;}
+input, textarea, button, select { appearance: none; -moz-appearance: none; -webkit-appearance: none; }
+input[type="radio"] { appearance: radio; -moz-appearance: radio; -webkit-appearance: radio; }
+input[type="checkbox"] { appearance: checkbox; -moz-appearance: checkbox; -webkit-appearance: checkbox; }
+}
+
+@media screen and (min-width:1200px) and (max-width:1599px) {
+.common-section { padding: 40px 0; }
+body, input[type="text"], input[type="password"], select, textarea { font-size: 15px; }
+h1.cmn-heading, h2.cmn-heading { margin-bottom: 25px; font-size: 28px; }
+.freetool-right a { font-size: 26px; }
+.white-trans-bg { min-height: 570px; }
+.bookhub-section, .events-schedules-section, .inspiresomeone-section { background-size: 100%; }
+ul.navbar-nav li a { font-size: 15px; margin: 0 12px; }
+
+.collegebol-admission-tools .admission-tool-round span { width: 80px; line-height: 80px; font-size: 30px; }
+.collegebol-admission-tools h1.cmn-heading, .collegebol-admission-tools h2.cmn-heading { margin-bottom: 15px; }
+.arc-bg { padding-top: 110px; background-position: top 15px center; background-size: 710px; }
+.collegebol-admission-tools .inspire-video { width: 450px;  }
+.round-two { top: -131px; }
+.admission-round-dott { width: 15px; height: 15px; }
+.dott-pos1, .dott-pos3 { top: -62px; }
+.dott-pos2 { left: -102px; }
+.dott-pos4 { right: -102px; }
+.round-one { left: -155px; }
+}
+
+@media screen and (min-width:1024px)and (max-width:1199px) { 
+.collegebol-admission-tools .inspire-video { max-width: 500px; }
+.arc-bg { padding-top: 160px; background-size: 80%; }
+.round-two { top: -150px; }
+.dott-pos1, .dott-pos3 { top: -54px; }
+.dott-pos2 { left: -103px; }
+.dott-pos4 { right: -103px; }
+}
+
+@media screen and (max-width:1199px) {
+.common-section { padding: 50px 0; }
+body, input[type="text"], input[type="password"], select, textarea { font-size: 15px; }
+input[type="text"], input[type="password"], select, textarea { padding: 9px 10px; }
+select { padding-right: 20px; }
+ul.navbar-nav li a { font-size: 15px; }
+h1.cmn-heading, h2.cmn-heading { margin-bottom: 25px; font-size: 28px; }
+.freetool-right a { font-size: 26px; }
+.bookhub-section, .events-schedules-section, .inspiresomeone-section { background-size: 100%; min-height: inherit; }
+.white-trans-bg { min-height: 540px; }
+.inspire-text { font-size: 18px;  }
+.event-first, .event-second { width: 220px; }
+h3.event-hd { font-size: 17px; margin-bottom: 15px;   }
+.slider-txt { font-size: 24px; width: 135px; }
+.form-cnt-area select { width: 100%; }
+.predictor-img-txt h3 { font-size: 30px; }
+.predictor-img-txt p {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+.college-logo { width: 120px; }    
+.score-search {  margin-left: 0;margin-top: 5px; display: block; }
+.score-search input { width: 100%; }
+.header-searchbar { width: 300px; margin-right: 0px; }
+.comparator-filter-area { text-align: left; }
+.comparator-filter-area span { width: 24%; margin-bottom: 10px;  }
+.comparator-filter-area span select { width: 100%; }
+.college-evaluator-l .score-search { display: inline-block; }
+.college-evaluator-l .score-search input { width: auto; margin-left: 10px; }
+.evaluator-selection { margin-top: 20px; }
+.evaluator-circle { left: 20px;}
+.login-cnt, .signup-cnt { padding: 50px 30px; }
+}
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+.complete-profile-frm .form-row { display: block; }
+.complete-profile-frm .form-label, .complete-profile-frm .form-cnt-area { width: auto; float: none; }
+}
+
+@media screen and (max-width:1023px) {
+.common-section { padding: 40px 0; }
+.header-search { width: 46%; }
+h1.cmn-heading, h2.cmn-heading { font-size: 24px; }
+h1.cmn-heading strong, h2.cmn-heading strong  { font-size: 13px; }
+.freetool-right span { font-size: 15px; }
+.freetool-right a { font-size: 22px; }
+.freeship span { font-size: 16px; }
+.freeship em { font-size: 20px; }
+.white-trans-bg {
+    min-height: 555px;
+}
+.blue-txt { font-size: 15px; }
+.event-blk3 { margin-top: 30px; }
+.addvalue-desc { width: 80%; float: none; margin: auto; }
+.addvalue-blk { min-height: 210px; }
+.header-search { width: 34%; }
+.predict-list-l, .predict-list-r { width: auto; float: none; }
+.predict-list-r { text-align: left; margin-top:10px; }
+.college-info { width: 70%; }
+.collegearea-btn { width: auto; text-align: center; float: none; clear: both; padding-top: 20px; }
+.collegearea-btn a{ margin: 0 7px; }
+.college-info h3 { font-size: 18px; }
+.predict-btns a { margin-right: 10px; margin-left: 0; }
+.header-btn a {
+    font-size: 13px;
+}
+.star-cnt { display: block; margin-right: 0; }
+.border-wholebox small { display: block; }
+.college-evaluator-l  { width: auto; }
+.college-evaluator-r { margin-top: 35px; width: auto; margin-top: 0; }
+.cmn-btn-outline { padding: 0 20px; }
+.logo { width: 150px; }
+.logo img { max-width: 100%; }
+.header-btn .cmn-btn-outline { padding: 0 15px; }
+.header-searchbar { width: 220px; }
+.comparator-filter-area span { width: 32%;  }
+.letstart-link { font-size: 16px; }
+.evaluator-selection span { margin-bottom: 10px; } 
+.your-chance-cnt { width: 160px; height: 160px; font-size: 18px; line-height: 22px; }
+.your-chance-cnt span { font-size: 55px; margin-top: 0; }
+.arc-bg { background-size: 90%; }
+.collegebol-admission-tools .inspire-video { max-width: 400px; }
+.dott-pos3, .dott-pos1 { right: -12px; }
+.dott-pos2, .dott-pos4 { right: -128px; }
+.collegearea-btn { position: absolute; top: 0px; right: 0px; }
+.main-menu { padding: 10px; white-space: inherit; height: auto; line-height: 22px; }
+.main-menu a { font-size: 13px !important; }
+.main-dropdown, .sub-dropdown { position: inherit; top:auto; left: auto; }
+.dropdown-arr-img { display: none; } 
+.sub-menu { background: none; box-shadow: none; border-bottom: 1px solid #ccc; margin-bottom: 5px; }
+.evaluator-circle { top: -10px;}
+.evaluator-cntarea { padding-left: 200px; } 
+.evaluator-selection span { width: 49%; }
+.login-cnt, .signup-cnt {
+    padding: 30px 20px;
+}
+.login-heading { margin-bottom: 30px; }
+.login-heading h2  { font-size: 24px; }
+.register-steps-form { padding: 25px; }
+.register-steps-area ul li:after { width: 90%; }
+.form-label { font-size: 14px; }
+
+
+.complete-profile-blk { padding-right: 0; }
+}
+
+@media screen and (max-width:767px) {
+body, input[type="text"], input[type="password"], select, textarea { font-size: 14px; }
+.common-section { padding: 30px 0; }
+span.navbar-toggler-icon { background: url(../images/toggle-menu-ico.png) no-repeat center; }
+.white-trans-bg { min-height: inherit; margin-bottom: 30px; }
+.counseling-img { margin-bottom: 30px; }
+.event-blk-area { float: none; }
+.event-first, .event-second { float: none; margin: auto; }
+.inspire-small-video:before { left: auto; right: -20px; }
+.inspire-small-video { text-align: center; }
+.inspiresomeone-video, .inspire-small-second { margin-top: 30px; }
+.addvalue-desc { width: 95%; }
+.addvalue-blk { min-height: inherit; }
+.copyright, .social-icon { margin: 10px 0; text-align: center; }
+.footer-address { margin-top: 20px; }
+.footer-slogan span { font-size: 20px; }
+ul.navbar-nav li a.cmn-link:after { display: none !important; }
+.header-search, .header-btn { width: 100%; text-align: center; }
+.header-btn { margin-top: 0px; margin-bottom: 0px; }
+.header-btn a.cmn-btn-outline { margin-top: 10px; }
+.navbar-toggler {    top: 20px;
+    right: 0px; position: absolute;
+ }
+ .header-search { margin-top: 0; }
+ .header-sticky .fixed-top .logo { padding-top: 25px;  }
+ ul.navbar-nav li a { padding: 5px !important; font-size: 14px; }
+ .header-sticky .fixed-top { padding-bottom: 0; }
+ .predictor-form-cnt { margin-top: 30px; }
+.filters { display: block; text-align: center; border-bottom: 1px solid #ccc; padding-bottom: 20px; font-size: 18px; font-weight: 700; margin-bottom: 20px; }
+.left-filter { display: none; }
+.predict-btns a { margin: 0 7px; }
+.predict-btns { text-align: center; display: block; }
+.predict-list-l { text-align: center; }
+.college-logo { float: none; margin: auto; margin-bottom: 20px; }
+.college-info { width: auto; float: none; }
+.collegearea-btn a { min-width: 125px; }
+.pagination { display: block; }
+.page-count {  margin: 0; margin-bottom: 10px; }
+.page-count, .paging {  display: block; text-align: center; }
+.predict-list-l { font-size: 18px; }
+.header-btn a {
+    font-size: 14px;
+}
+.college-comparator-list { overflow: auto; overflow-y: hidden; }
+.college-comparator-table { width: 750px; }
+.alumni-box { margin-bottom: 30px; }
+.evaluator-selection { padding-top: 20px; }
+.evaluator-selection span { display: block; margin: 10px 0; width: 100%; }
+.your-chance-cnt { margin-top: 0; }
+.header-searchbar { width: 100%; }
+.header-btn .cmn-btn-outline {
+     margin: 0 5px;
+}
+.comparator-filter-area  { text-align: center; }
+.comparator-filter-area span { width: 100%; }
+.dott-pos2, .dott-pos4, .dott-pos3, .dott-pos1 { display: none; }
+.admission-tool-round.round-one { left: 0; bottom: -120px;  }
+.admission-tool-round.round-three { right: 0; bottom: -120px;  }
+.collegebol-admissiontool-section { margin-top: 150px; }
+.admission-tool-round span { font-size: 35px; }
+.suggested-choice { display: block; text-align: center; float: none; margin-bottom: 20px; margin-top: 10px;}
+.evaluator-cntarea { padding-left: 0; } 
+.evaluator-selection span { width: 100%; }
+.export-pdf { text-align: center; }
+.evaluator-circle { position: inherit; top: -20px; left: auto; }
+.score-search { margin-top: 0; }
+.college-evaluator-l .score-search input { width: 120px; }
+.college-evaluator-l { font-size: 18px; }
+.login-heading h2 span { font-size: 14px; }
+.register-cnt-area { font-size: 15px;  } 
+.register-steps-area ul li:after { right: -50px; top: 23px; height: 3px; }
+.register-steps-area ul li span {    line-height: 42px;
+    font-size: 20px; width: 50px;
+    height: 50px; }
+	.register-steps-form .custom-radio { margin-right: 15px; }
+	.complete-profile-frm { padding-top: 30px; }
+	.social-btn span { margin: 15px 0; display: block; }
+	.social-or-line span { width: 40px; height: 40px; line-height: 40px; font-size: 16px; }
+	.social-or-line { margin-bottom: 50px; }
+	.social-btn { margin-bottom: 30px; }
+}
+
+@media screen and (max-width:374px) {
+.header-btn .cmn-btn-outline {
+    padding: 0 9px;
+    margin: 0 3px;
+}	
+.letstart-link { font-size: 14px; }
+.college-evaluator-l .score-search input { width: 105px; }
+.college-evaluator-l { font-size: 15px; }
+.admission-tool-round.round-one {
+    left: 0px !important;
+
+}
+.admission-tool-round.round-three {
+    right: 0px !important;
+
+}
+h1.cmn-heading, h2.cmn-heading { font-size: 18px; }
+
+.login-form-area .form-row, .register-steps-form .form-row { display: block; }
+.login-form-area .form-label, .login-form-area .form-cnt-area, .register-steps-form .form-label, .register-steps-form .form-cnt-area { width: auto; float: none;  }
+.register-steps-form { padding: 25px 15px; }
+.register-steps-form .custom-radio { margin-right: 5px; }
+.register-steps-area ul li span {
+    line-height: 38px;
+    font-size: 18px;
+    width: 45px;
+    height: 45px;
+}
+h2.cmn-blk-hd { font-size: 18px; }
+}
+
+@media screen and (min-width:320px)and (max-width:767px) { 
+.collegebol-admission-tools .inspire-video { max-width: 290px; }
+.arc-bg { padding-top:  130px; background: none; }
+.collegebol-admission-tools { padding-bottom: 130px; }
+.collegebol-admission-tools h1.cmn-heading, .collegebol-admission-tools h2.cmn-heading { margin-bottom: 10px; }
+.admission-tool-round { width: 80px; height: 80px; }
+.admission-tool-round span { line-height: 80px; }
+.round-two { top: -145px; }
+.admission-tool-round.round-one {
+    left: -40px;
+    bottom: -100px;
+}
+.admission-tool-round.round-three {
+    right: -40px;
+    bottom: -100px;
+}
+}

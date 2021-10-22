@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tipltraineeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'tipltrainee.trainee.Reg' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Reg">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="Firstname" />
+      <PropertyRef Name="Lastname" />
+      <PropertyRef Name="Mobile" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="Password" />
+      <PropertyRef Name="CPassword" />
+      <PropertyRef Name="Profile" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CPassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Profile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="gender" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Register">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Firstname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lastname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Mobile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Cpassword" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Profile" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="tipltraineeModelStoreContainer">
+    <EntitySet Name="Register" EntityType="Self.Register" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="Reg" EntityType="Self.Reg" store:Type="Tables" store:Schema="trainee">
+      <DefiningQuery>SELECT 
+    [Reg].[id] AS [id], 
+    [Reg].[Firstname] AS [Firstname], 
+    [Reg].[Lastname] AS [Lastname], 
+    [Reg].[Mobile] AS [Mobile], 
+    [Reg].[Email] AS [Email], 
+    [Reg].[Password] AS [Password], 
+    [Reg].[CPassword] AS [CPassword], 
+    [Reg].[Profile] AS [Profile], 
+    [Reg].[gender] AS [gender]
+    FROM [trainee].[Reg] AS [Reg]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,42 @@
+﻿@model aspProjects.Models.student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>student</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.studentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.studentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isactive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isactive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.studentID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

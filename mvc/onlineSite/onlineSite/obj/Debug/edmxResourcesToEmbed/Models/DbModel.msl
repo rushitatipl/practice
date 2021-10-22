@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tipltraineeModelStoreContainer" CdmEntityContainer="DbModel">
+    <EntitySetMapping Name="carts">
+      <EntityTypeMapping TypeName="tipltraineeModel.cart">
+        <MappingFragment StoreEntitySet="cart">
+          <ScalarProperty Name="cartid" ColumnName="cartid" />
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="cartstatusid" ColumnName="cartstatusid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cartstatus">
+      <EntityTypeMapping TypeName="tipltraineeModel.cartstatu">
+        <MappingFragment StoreEntitySet="cartstatus">
+          <ScalarProperty Name="cartstatusid" ColumnName="cartstatusid" />
+          <ScalarProperty Name="cartstatus" ColumnName="cartstatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="categories">
+      <EntityTypeMapping TypeName="tipltraineeModel.category">
+        <MappingFragment StoreEntitySet="category">
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="category_name" ColumnName="category_name" />
+          <ScalarProperty Name="parent_category_id" ColumnName="parent_category_id" />
+          <ScalarProperty Name="category_status" ColumnName="category_status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="customer_reg">
+      <EntityTypeMapping TypeName="tipltraineeModel.customer_reg">
+        <MappingFragment StoreEntitySet="customer_reg">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="cpassword" ColumnName="cpassword" />
+          <ScalarProperty Name="profile" ColumnName="profile" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="feedbakes">
+      <EntityTypeMapping TypeName="tipltraineeModel.feedbake">
+        <MappingFragment StoreEntitySet="feedbake">
+          <ScalarProperty Name="f_id" ColumnName="f_id" />
+          <ScalarProperty Name="f_list" ColumnName="f_list" />
+          <ScalarProperty Name="f_comment" ColumnName="f_comment" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Logins">
+      <EntityTypeMapping TypeName="tipltraineeModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="memberroles">
+      <EntityTypeMapping TypeName="tipltraineeModel.memberrole">
+        <MappingFragment StoreEntitySet="memberrole">
+          <ScalarProperty Name="memberroleid" ColumnName="memberroleid" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="polls">
+      <EntityTypeMapping TypeName="tipltraineeModel.poll">
+        <MappingFragment StoreEntitySet="poll">
+          <ScalarProperty Name="poll_id" ColumnName="poll_id" />
+          <ScalarProperty Name="poll_title" ColumnName="poll_title" />
+          <ScalarProperty Name="poll_op" ColumnName="poll_op" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="products">
+      <EntityTypeMapping TypeName="tipltraineeModel.product">
+        <MappingFragment StoreEntitySet="product">
+          <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <ScalarProperty Name="p_name" ColumnName="p_name" />
+          <ScalarProperty Name="product_price" ColumnName="product_price" />
+          <ScalarProperty Name="p_desc" ColumnName="p_desc" />
+          <ScalarProperty Name="p_img" ColumnName="p_img" />
+          <ScalarProperty Name="p_status" ColumnName="p_status" />
+          <ScalarProperty Name="category_id" ColumnName="category_id" />
+          <ScalarProperty Name="createddate" ColumnName="createddate" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="roles">
+      <EntityTypeMapping TypeName="tipltraineeModel.role">
+        <MappingFragment StoreEntitySet="roles">
+          <ScalarProperty Name="roleid" ColumnName="roleid" />
+          <ScalarProperty Name="rolename" ColumnName="rolename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="shippingdetails">
+      <EntityTypeMapping TypeName="tipltraineeModel.shippingdetail">
+        <MappingFragment StoreEntitySet="shippingdetail">
+          <ScalarProperty Name="shippingdetailid" ColumnName="shippingdetailid" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="Adress" ColumnName="Adress" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="zipcode" ColumnName="zipcode" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="amountpaid" ColumnName="amountpaid" />
+          <ScalarProperty Name="paymenttype" ColumnName="paymenttype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

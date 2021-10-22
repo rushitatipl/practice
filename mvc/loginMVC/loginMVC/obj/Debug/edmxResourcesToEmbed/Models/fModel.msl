@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tipltraineeModel1StoreContainer" CdmEntityContainer="fModel">
+    <EntitySetMapping Name="families">
+      <EntityTypeMapping TypeName="tipltraineeModel1.family">
+        <MappingFragment StoreEntitySet="family">
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="member" ColumnName="member" />
+          <ScalarProperty Name="relation" ColumnName="relation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tipltraineeModelStoreContainer" CdmEntityContainer="DbModell">
+    <EntitySetMapping Name="tiplLogins">
+      <EntityTypeMapping TypeName="tipltraineeModel.tiplLogin">
+        <MappingFragment StoreEntitySet="tiplLogin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="families">
+      <EntityTypeMapping TypeName="tipltraineeModel.family">
+        <MappingFragment StoreEntitySet="family">
+          <ScalarProperty Name="relation" ColumnName="relation" />
+          <ScalarProperty Name="member" ColumnName="member" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

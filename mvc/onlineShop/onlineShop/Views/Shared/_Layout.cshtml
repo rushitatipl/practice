@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @Styles.Render("~/Content/css/style.css")
+    @Styles.Render("~/Content/css/responsive.css")
+    @Styles.Render("~/Content/css/custom.css")
+
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+    <!-- Bootstrap CSS -->
+    <!--<link rel="stylesheet" href="css/bootstrap.min.css">-->
+    <!-- Site CSS -->
+    <!--<link rel="stylesheet" href="css/style.css">-->
+    <!-- Responsive CSS -->
+    <!--<link rel="stylesheet" href="css/responsive.css">-->
+    <!-- Custom CSS -->
+    <!--<link rel="stylesheet" href="css/custom.css">-->
+
+</head>
+<body>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+
+    @Scripts.Render("~/Content/js/jquery-3.2.1.min.js")
+    @Scripts.Render("~/Content/js/popper.min.js")
+    @Scripts.Render("~/Content/js/bootstrap.min.js")
+    @Scripts.Render("~/Content/js/jquery.superslides.min.js")
+    @Scripts.Render("~/Content/js/bootstrap-select.js")
+    @Scripts.Render("~/Content/js/inewsticker.js")
+    @Scripts.Render("~/Content/js/bootsnav.js.")
+    @Scripts.Render("~/Content/js/images-loded.min.js")
+    @Scripts.Render("~/Content/jsisotope.min.js")
+    @Scripts.Render("~/Content/jsowl.carousel.min.js")
+    @Scripts.Render("~/Content/js/baguetteBox.min.js")
+    @Scripts.Render("~/Content/js/form-validator.min.js")
+    @Scripts.Render("~/Content/js/contact-form-script.js")
+    @Scripts.Render("~/Content/js/custom.js")
+
+
+
+    <!--<script src=""></script>-->
+    <!-- ALL PLUGINS -->
+    <!--<script src="js/jquery.superslides.min.js"></script>
+    <script src=""></script>
+    <script src="js/inewsticker.js"></script>
+    <script src="js/bootsnav.js."></script>
+    <script src="js/images-loded.min.js"></script>
+    <script src="js/isotope.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/baguetteBox.min.js"></script>
+    <script src="js/form-validator.min.js"></script>
+    <script src="js/contact-form-script.js"></script>
+    <script src="js/custom.js"></script>-->
+</body>
+</html>

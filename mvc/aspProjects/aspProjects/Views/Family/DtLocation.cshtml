@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "DtLocation";
+}
+
+<h2>DtLocation</h2>
+
+<div style="width: 100%;">
+    <table style="width: 100%;">
+        <tr>
+            <td style="width: 15%;">
+                Remove Time From Default Date :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["removeTm"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                Todays Date :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["nowDt"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                Current Time :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["nowTm"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                User Date :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["userDt"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                Long Date :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["longDt"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                Formatted Date:
+            </td>
+            <td style="width: 50%;">
+                @ViewData["formattedDt"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                Date :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["fDt"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                Current Time Zone :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["CurrentTimeZone"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                UTC Offset :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["UTCOffset"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                Day Light Start Time :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["dayLightStartTm"]
+            </td>
+        </tr>
+        <tr>
+            <td style="width: 15%;">
+                Converted Time :
+            </td>
+            <td style="width: 50%;">
+                @ViewData["ConvertedTZone"]
+            </td>
+        </tr>
+    </table>
+</div>

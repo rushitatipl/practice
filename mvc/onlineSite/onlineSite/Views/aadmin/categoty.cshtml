@@ -1,0 +1,76 @@
+﻿@model IEnumerable<onlineSite.Models.category>
+
+@{
+    ViewBag.Title = "categoty";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>categoty</h2>
+@using (Html.BeginForm("categoty", "aadmin", FormMethod.Get))
+{
+    //the following are search options
+    <b> Search Option: </b>
+    @Html.RadioButton("option", "category_id")
+    <text>Id</text> @Html.RadioButton("option", "category_name") <text> Name </text>
+    @Html.RadioButton("option", "parent_category_id")<text>All</text> @Html.TextBox("search")
+    <input type="submit" name="submit" value="Search" />
+    
+
+
+
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Category Details
+
+        </div>
+        <a class="nav-link" href="../aadmin/CreateCategory">
+            <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+            Add New
+        </a>
+        <div class="card-body">
+            <table id="datatablesSimple">
+
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.category_id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.category_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.parent_category_id)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.category_status)
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.category_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.category_name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.parent_category_id)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.category_status)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Edit", "EditCategory", new { id = item.category_id }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.category_id }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.category_id })
+                        </td>
+                    </tr>
+                }
+
+            </table>
+        </div>
+    </div>
+}

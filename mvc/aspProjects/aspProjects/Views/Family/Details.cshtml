@@ -1,0 +1,42 @@
+﻿@model aspProjects.Models.family
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>family</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.memberid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.memberid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.member)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.member)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.relation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.relation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

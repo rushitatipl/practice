@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tipltraineeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="age">
+    <Key>
+      <PropertyRef Name="ageid" />
+    </Key>
+    <Property Name="ageid" Type="int" Nullable="false" />
+    <Property Name="memberid" Type="int" Nullable="false" />
+    <Property Name="age" Type="int" Nullable="false" />
+    <Property Name="DOB" Type="date" />
+  </EntityType>
+  <EntityType Name="family">
+    <Key>
+      <PropertyRef Name="memberid" />
+    </Key>
+    <Property Name="memberid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="member" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="relation" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="student">
+    <Key>
+      <PropertyRef Name="studentID" />
+    </Key>
+    <Property Name="studentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="studentName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="mobile" Type="bigint" Nullable="false" />
+    <Property Name="isactive" Type="bit" />
+  </EntityType>
+  <Association Name="FK_age">
+    <End Role="family" Type="Self.family" Multiplicity="1" />
+    <End Role="age" Type="Self.age" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="family">
+        <PropertyRef Name="memberid" />
+      </Principal>
+      <Dependent Role="age">
+        <PropertyRef Name="memberid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="tipltraineeModelStoreContainer">
+    <EntitySet Name="age" EntityType="Self.age" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="family" EntityType="Self.family" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="student" EntityType="Self.student" Schema="trainee" store:Type="Tables" />
+    <AssociationSet Name="FK_age" Association="Self.FK_age">
+      <End Role="family" EntitySet="family" />
+      <End Role="age" EntitySet="age" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

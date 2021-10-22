@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="tipltraineeModelStoreContainer" CdmEntityContainer="DbModel">
+    <EntitySetMapping Name="ages">
+      <EntityTypeMapping TypeName="tipltraineeModel.age">
+        <MappingFragment StoreEntitySet="age">
+          <ScalarProperty Name="ageid" ColumnName="ageid" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="age1" ColumnName="age" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="families">
+      <EntityTypeMapping TypeName="tipltraineeModel.family">
+        <MappingFragment StoreEntitySet="family">
+          <ScalarProperty Name="relation" ColumnName="relation" />
+          <ScalarProperty Name="memberid" ColumnName="memberid" />
+          <ScalarProperty Name="member" ColumnName="member" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="students">
+      <EntityTypeMapping TypeName="tipltraineeModel.student">
+        <MappingFragment StoreEntitySet="student">
+          <ScalarProperty Name="isactive" ColumnName="isactive" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="studentName" ColumnName="studentName" />
+          <ScalarProperty Name="studentID" ColumnName="studentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,2 @@
+D:\mvc\StudLogin\StudLogin\obj\Debug\StudLogin.csproj.AssemblyReference.cache
+D:\mvc\StudLogin\StudLogin\obj\Debug\StudLogin.csproj.CoreCompileInputs.cache

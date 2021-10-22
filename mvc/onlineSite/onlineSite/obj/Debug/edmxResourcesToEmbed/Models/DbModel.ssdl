@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="tipltraineeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="cart">
+    <Key>
+      <PropertyRef Name="cartid" />
+    </Key>
+    <Property Name="cartid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_id" Type="int" Nullable="false" />
+    <Property Name="customer_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="cartstatusid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="cartstatus">
+    <Key>
+      <PropertyRef Name="cartstatusid" />
+    </Key>
+    <Property Name="cartstatusid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="cartstatus" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="category">
+    <Key>
+      <PropertyRef Name="category_id" />
+    </Key>
+    <Property Name="category_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="category_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="parent_category_id" Type="int" Nullable="false" />
+    <Property Name="category_status" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="customer_reg">
+    <Key>
+      <PropertyRef Name="customer_id" />
+    </Key>
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="fname" Type="varchar" MaxLength="50" />
+    <Property Name="lname" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="mobile" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="cpassword" Type="varchar" MaxLength="50" />
+    <Property Name="profile" Type="varchar" MaxLength="50" />
+    <Property Name="country" Type="varchar" MaxLength="50" />
+    <Property Name="state" Type="varchar" MaxLength="50" />
+    <Property Name="city" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="feedbake">
+    <Key>
+      <PropertyRef Name="f_id" />
+    </Key>
+    <Property Name="f_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="f_list" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="f_comment" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="memberrole">
+    <Key>
+      <PropertyRef Name="memberroleid" />
+    </Key>
+    <Property Name="memberroleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="memberid" Type="int" Nullable="false" />
+    <Property Name="roleid" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="poll">
+    <Key>
+      <PropertyRef Name="poll_id" />
+    </Key>
+    <Property Name="poll_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="poll_title" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="poll_op" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="product">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="p_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_price" Type="int" Nullable="false" />
+    <Property Name="p_desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_img" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="category_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="createddate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="roles">
+    <Key>
+      <PropertyRef Name="roleid" />
+    </Key>
+    <Property Name="roleid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="rolename" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="shippingdetail">
+    <Key>
+      <PropertyRef Name="shippingdetailid" />
+    </Key>
+    <Property Name="shippingdetailid" Type="int" Nullable="false" />
+    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="Adress" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="city" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="state" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="country" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="zipcode" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="order_id" Type="int" Nullable="false" />
+    <Property Name="amountpaid" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="paymenttype" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="tipltraineeModelStoreContainer">
+    <EntitySet Name="cart" EntityType="Self.cart" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="cartstatus" EntityType="Self.cartstatus" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="category" EntityType="Self.category" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="customer_reg" EntityType="Self.customer_reg" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="feedbake" EntityType="Self.feedbake" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="memberrole" EntityType="Self.memberrole" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="poll" EntityType="Self.poll" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="product" EntityType="Self.product" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="roles" EntityType="Self.roles" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="shippingdetail" EntityType="Self.shippingdetail" Schema="trainee" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

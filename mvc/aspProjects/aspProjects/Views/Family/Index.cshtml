@@ -1,0 +1,58 @@
+﻿@model IEnumerable<aspProjects.Models.family>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<h6>Total No. of Record :@Model.Count()</h6>
+
+@using (Html.BeginForm("Index", "Family", FormMethod.Get))
+{
+
+
+    @Html.TextBox("search")
+    <input type="submit" value=" Search" />
+
+    @ViewBag.usa
+}
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.memberid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.member)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.relation)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.memberid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.member)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.relation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.memberid }) |
+                @Html.ActionLink("Details", "Details", new { id = item.memberid }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.memberid })
+            </td>
+        </tr>
+    }
+
+</table>
+

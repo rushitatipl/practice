@@ -1,0 +1,108 @@
+﻿@model IEnumerable<onlineSite.Models.product>
+
+@{
+    ViewBag.Title = "product";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+
+<h2>product</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateProduct")
+</p>
+@using (Html.BeginForm("product", "aadmin", FormMethod.Get))
+{
+    //the following are search options
+    <b> Search Option: </b>
+    @Html.RadioButton("option", "p_name")
+    <text>Name</text> @Html.RadioButton("option", "Gender") <text> All </text>
+    @Html.TextBox("search")
+ 
+    <input type="submit" name="submit" value="Search" />
+    <p>
+
+
+    </p>
+}
+
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table me-1"></i>
+        Product Details
+
+    </div>
+    <a class="nav-link" href="../aadmin/CreateCategory">
+        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
+        Add New
+    </a>
+    <div class="card-body">
+        <table id="datatablesSimple">
+
+
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.p_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.p_name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.product_price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.p_desc)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.p_img)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.p_status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.category_id)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.quantity)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.p_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.p_name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.product_price)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.p_desc)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.p_img)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.p_status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category_id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "EditProduct", new { id = item.p_id }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.p_id }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.p_id })
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+</div>
