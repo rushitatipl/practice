@@ -11,8 +11,15 @@ namespace onlineSite.Controllers
         // GET: online
         public ActionResult Index()
         {
-            using(DbModel db=new DbModel())
+            TimeZoneInfo timeZoneInfo;
+            //DateTime dateTime;
+            //Set the time zone information
+            timeZoneInfo = TimeZoneInfo.FindSystemTimeZoneById("Eastern Standard Time");
+            //Get date and time
+            ViewBag.dateTime = TimeZoneInfo.ConvertTime(DateTime.Now, timeZoneInfo);
+            using (DbModel db=new DbModel())
             {
+
                 return View(db.customer_reg.ToList());
             }
            
@@ -40,13 +47,23 @@ namespace onlineSite.Controllers
                 {
                     db.customer_reg.Add(reg);
                     db.SaveChanges();
+                   
                 }
-                return RedirectToAction("Index");
+                return RedirectToAction("CreateLogin");
             }
             catch
             {
                 return View();
             }
+        }
+
+        public ActionResult productView()
+        {
+            using (DbModel db = new DbModel())
+            {
+                return View(db.products.ToList());
+            }
+
         }
 
         public ActionResult CreateLogin()
@@ -66,7 +83,9 @@ namespace onlineSite.Controllers
                     db.customer_reg.Add(reg);
                     db.SaveChanges();
                 }
+
                 }
+               
                 return RedirectToAction("Index");
             }
             catch
@@ -97,6 +116,21 @@ namespace onlineSite.Controllers
             }
         }
 
+        public ActionResult addtocart(int productid)
+        {
+            DbModel db = new DbModel();
+            List<Item>  cart = new List<Item>();
+            var prod = db.products.Find(productid);
+            
+            cart.Add(new Item()
+            {
+                pro = prod,
+                quantity=1
+               
+            }) ;
+            Session["cart"] = cart;
+            return Redirect("Index");
+        }
         // GET: online/Delete/5
         public ActionResult Delete(int id)
         {

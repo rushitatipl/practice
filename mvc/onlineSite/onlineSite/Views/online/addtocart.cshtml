@@ -1,0 +1,46 @@
+﻿@model IEnumerable<onlineSite.Models.cart>
+
+@{
+    ViewBag.Title = "addtocart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>addtocart</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.product_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cartstatusid)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.product_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cartstatusid)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.cartid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.cartid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.cartid })
+        </td>
+    </tr>
+}
+
+</table>

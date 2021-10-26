@@ -126,7 +126,7 @@ namespace onlineSite.Controllers
         [HttpPost]
         public ActionResult CreateProduct(product cat)
         {
-            string filename=Path.GetFileNameWithoutExtension(cat)
+            //string filename=Path.GetFileNameWithoutExtension(cat)
             try
             {
                 using (DbModel db = new DbModel())
@@ -179,13 +179,8 @@ namespace onlineSite.Controllers
         // GET: aadmin/Delete/5
         public ActionResult Delete(int id)
         {
-            DbModel db = new DbModel();
-            if (id == null)
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            Product product = db.Products.Find(id);
-            if (product == null)
-                return HttpNotFound();
-            return View(product);
+            
+            return View();
         }
 
         // POST: aadmin/Delete/5
