@@ -8,6 +8,7 @@
     <Property Name="product_id" Type="Int32" Nullable="false" />
     <Property Name="customer_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cartstatusid" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" />
   </EntityType>
   <EntityType Name="cartstatu">
     <Key>
@@ -32,14 +33,17 @@
     <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
     <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="cpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="cpassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="profile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IsEmailVerified" Type="Boolean" />
+    <Property Name="ActivationCode" Type="Guid" />
+    <Property Name="ResetPasswordCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="feedbake">
     <Key>
@@ -121,5 +125,16 @@
     <EntitySet Name="products" EntityType="Self.product" />
     <EntitySet Name="roles" EntityType="Self.role" />
     <EntitySet Name="shippingdetails" EntityType="Self.shippingdetail" />
+    <EntitySet Name="contactUs" EntityType="tipltraineeModel.contactU" />
   </EntityContainer>
+  <EntityType Name="contactU">
+    <Key>
+      <PropertyRef Name="contactId" />
+    </Key>
+    <Property Name="contactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

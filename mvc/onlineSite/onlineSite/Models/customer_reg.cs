@@ -25,5 +25,8 @@ namespace onlineSite.Models
         public string country { get; set; }
         public string state { get; set; }
         public string city { get; set; }
+        public Nullable<bool> IsEmailVerified { get; set; }
+        public Nullable<System.Guid> ActivationCode { get; set; }
+        public string ResetPasswordCode { get; set; }
     }
 }

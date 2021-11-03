@@ -112,7 +112,16 @@ namespace onlineSite.Controllers
            
             else
             {
-                return View(db.products.ToList());
+                //var res = (from c in db.products
+                //           where c.IsDelete == true
+                //           select c);
+
+                //if (res != true)
+                //{
+                  return View(db.products.ToList());
+                //}
+
+
             }
 
         }
@@ -143,6 +152,8 @@ namespace onlineSite.Controllers
             }
 
         }
+
+        // 
                
         
 
@@ -177,21 +188,34 @@ namespace onlineSite.Controllers
         }
 
         // GET: aadmin/Delete/5
-        public ActionResult Delete(int id)
+        [HttpGet]
+        public ActionResult DeleteUser(int id)
         {
-            
-            return View();
+
+            using (DbModel db = new DbModel())
+            {
+                return View(db.products.Where(a => a.p_id == id).FirstOrDefault());
+                //return View(db.customer_reg.Where(x => x.customer_id == id).FirstOrDefault());
+            }
         }
 
         // POST: aadmin/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeleteUser(int id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
+                using (DbModel db = new DbModel())
+                {
+                    product pro = db.products.Where(a => a.p_id == id).FirstOrDefault();
+                    db.products.Remove(pro);
+                    db.SaveChanges();
+                    //customer_reg cust = db.customer_reg.Where(x => x.customer_id == id).FirstOrDefault();
+                    //db.customer_reg.Remove(cust);
+                    //db.SaveChanges();
+                }
+                return RedirectToAction("product");
             }
             catch
             {

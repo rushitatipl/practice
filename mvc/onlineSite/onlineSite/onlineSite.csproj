@@ -131,7 +131,9 @@
     <Compile Include="Controllers\aadminController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\Item.cs" />
     <Compile Include="Controllers\onlineController.cs" />
+    <Compile Include="Crypto.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -144,6 +146,10 @@
     <Compile Include="Models\category.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\contactU.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CreateLogin.cs" />
     <Compile Include="Models\customer_reg.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -162,6 +168,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\extend\customer_reg.cs" />
     <Compile Include="Models\feedbake.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -169,6 +176,7 @@
     <Compile Include="Models\Login.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Login1.cs" />
     <Compile Include="Models\memberrole.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -179,6 +187,7 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\productDetail.cs" />
+    <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\role.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -352,10 +361,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\online\Index.cshtml" />
     <Content Include="Views\online\Create.cshtml" />
-    <Content Include="Views\online\CreateLogin.cshtml" />
     <Content Include="Views\Shared\_AdminLayoutPage1.cshtml" />
     <Content Include="Views\Admin\dashboard.cshtml" />
     <Content Include="Views\Admin\categoty.cshtml" />
@@ -363,7 +369,6 @@
     <Content Include="Views\Admin\product.cshtml" />
     <Content Include="Views\Admin\productEdit.cshtml" />
     <Content Include="Views\aadmin\dashboard.cshtml" />
-    <Content Include="Views\aadmin\CreateCategory.cshtml" />
     <Content Include="Views\aadmin\categoty.cshtml" />
     <Content Include="Views\aadmin\EditCategory.cshtml" />
     <Content Include="Views\aadmin\product.cshtml" />
@@ -371,6 +376,15 @@
     <Content Include="Views\aadmin\CreateProduct.cshtml" />
     <Content Include="Views\online\productView.cshtml" />
     <Content Include="Views\online\addtocart.cshtml" />
+    <Content Include="Views\online\verifyEmail.cshtml" />
+    <Content Include="Views\online\CreateLogin.cshtml" />
+    <Content Include="Views\online\ForgotPassword.cshtml" />
+    <Content Include="Views\online\ResetPassword.cshtml" />
+    <Content Include="Views\online\VerifyAccount.cshtml" />
+    <Content Include="Views\aadmin\DeleteUser.cshtml" />
+    <Content Include="Views\online\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\online\contact.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

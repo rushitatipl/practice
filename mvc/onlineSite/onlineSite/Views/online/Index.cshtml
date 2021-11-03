@@ -1,12 +1,9 @@
-﻿@model IEnumerable<onlineSite.Models.customer_reg>
-    @using onlineSite.Models;
+﻿@model IEnumerable<onlineSite.Models.product>
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
-
 @Styles.Render("~/Content/css/bootstrap.min.css")
 <div class="main-top">
     <div class="container-fluid">
@@ -42,14 +39,23 @@
                         </ul>
                     </div>
                 </div>
+
+                Welcome @HttpContext.Current.User.Identity.Name
+
+                @if (Request.IsAuthenticated)
+                {
+                    using (Html.BeginForm("Logout", "online", FormMethod.Post, new { id = "logoutForm" }))
+                    {
+                        <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+                    }
+                }
             </div>
-            <div><p>Welcome @ViewBag.user</p></div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="custom-select-box">
                     <select id="basic" class="selectpicker show-tick form-control" data-placeholder="$ USD">
                         <option>€ EUR</option>
                         <option>€ EUR </option>
-                        
+
                         <option>€ EUR</option>
                     </select>
                 </div>
@@ -58,7 +64,7 @@
                         <option>@DateTime.Now</option>
                         <option> @ViewBag.dateTime</option>
 
-                        
+
                     </select>
                     <p>Call US :- <a href="#"> +11 900 800 100</a></p>
                 </div>
@@ -184,17 +190,17 @@
             <li class="cart-box">
                 <ul class="cart-list">
                     @*@foreach (var item in (List<Item>)Session["cart"])
-                    {
-                        <li>
-                            <a href="#" class="photo"><img src="~/Image/@item.pro.p_img" class="cart-thumb" alt="" /></a>
-                            <h6><a href="#">@item.pro.p_name </a></h6>
-                            <p>1x - <span class="price">@item.pro.product_price</span></p>
-                        </li>
-                    }*@
-                <li class="total">
-                    <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                    <span class="float-right"><strong>Total</strong>: $180.00</span>
-                </li>
+                        {
+                            <li>
+                                <a href="#" class="photo"><img src="~/Image/@item.pro.p_img" class="cart-thumb" alt="" /></a>
+                                <h6><a href="#">@item.pro.p_name </a></h6>
+                                <p>1x - <span class="price">@item.pro.product_price</span></p>
+                            </li>
+                        }*@
+                    <li class="total">
+                        <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                        <span class="float-right"><strong>Total</strong>: $180.00</span>
+                    </li>
 
                 </ul>
             </li>
@@ -324,97 +330,39 @@
         </div>
 
         <div class="row special-list">
-            <div class="col-lg-3 col-md-6 special-grid best-seller">
-                <div class="products-single fix">
-                    <div class="box-img-hover">
-                        <div class="type-lb">
-                            <p class="sale">Sale</p>
-                        </div>
-                        <img src="~/Content/images/img-pro-01.jpg" class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-                            <ul>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <a class="cart" href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $7.79</h5>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-lg-3 col-md-6 special-grid top-featured">
-                <div class="products-single fix">
-                    <div class="box-img-hover">
-                        <div class="type-lb">
-                            <p class="new">New</p>
-                        </div>
-                        <img src="~/Content/images/img-pro-02.jpg" class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-                            <ul>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <a class="cart" href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $9.79</h5>
-                    </div>
-                </div>
-            </div>
+            @foreach (var item in Model)
+            {
 
-            <div class="col-lg-3 col-md-6 special-grid top-featured">
-                <div class="products-single fix">
-                    <div class="box-img-hover">
-                        <div class="type-lb">
-                            <p class="sale">Sale</p>
-                        </div>
-                        <img src="~/Content/images/img-pro-03.jpg" class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-                            <ul>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <a class="cart" href="#">Add to Cart</a>
-                        </div>
-                    </div>
-                    <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $10.79</h5>
-                    </div>
-                </div>
-            </div>
+                <div class="col-lg-3 col-md-6 special-grid best-seller">
+                    <div class="products-single fix">
+                        <div class="box-img-hover">
+                            <div class="type-lb">
+                                <p class="sale">Sale</p>
+                            </div>
+                            <img src="../Image/@Url.Content(item.p_img)" width="100px" height="200px" class="img-fluid" alt="Image">
+                            <div class="mask-icon">
+                                <ul>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                </ul>
+                                @*@Html.ActionLink("Add", "addtocart", new { id = item.p_id })*@
+                                @*@using (Html.BeginForm("addtocart", "online", new { productid = item.p_id }, FormMethod.Post))*@
+                                {
 
-            <div class="col-lg-3 col-md-6 special-grid best-seller">
-                <div class="products-single fix">
-                    <div class="box-img-hover">
-                        <div class="type-lb">
-                            <p class="sale">Sale</p>
+
+                                <a class="cart" href="#"><input class="cart" style="color:black; border:none; background-color:red" t value="Add to Cart"></a>
+                                }
+                            </div>
                         </div>
-                        <img src="~/Content/images/img-pro-04.jpg" class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-                            <ul>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                            </ul>
-                            <a class="cart" href="#">Add to Cart</a>
+                        <div class="why-text">
+                            <h4>  @Html.DisplayFor(modelItem => item.p_name)</h4>
+                            <h5>   Price : @Html.DisplayFor(modelItem => item.product_price)</h5>
                         </div>
-                    </div>
-                    <div class="why-text">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <h5> $15.79</h5>
                     </div>
                 </div>
-            </div>
+            }
         </div>
     </div>
 </div>
@@ -641,4 +589,3 @@
 <!-- End copyright  -->
 
 <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
-

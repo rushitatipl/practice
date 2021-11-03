@@ -1,0 +1,6 @@
+D:\github\practice\mvc\tiplLoginsignup\tipl.model\bin\Debug\tipl.model.dll
+D:\github\practice\mvc\tiplLoginsignup\tipl.model\bin\Debug\tipl.model.pdb
+D:\github\practice\mvc\tiplLoginsignup\tipl.model\obj\Debug\tipl.model.csproj.AssemblyReference.cache
+D:\github\practice\mvc\tiplLoginsignup\tipl.model\obj\Debug\tipl.model.csproj.CoreCompileInputs.cache
+D:\github\practice\mvc\tiplLoginsignup\tipl.model\obj\Debug\tipl.model.dll
+D:\github\practice\mvc\tiplLoginsignup\tipl.model\obj\Debug\tipl.model.pdb

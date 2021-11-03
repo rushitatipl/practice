@@ -4,6 +4,7 @@
     <EntitySetMapping Name="carts">
       <EntityTypeMapping TypeName="tipltraineeModel.cart">
         <MappingFragment StoreEntitySet="cart">
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
           <ScalarProperty Name="cartid" ColumnName="cartid" />
           <ScalarProperty Name="product_id" ColumnName="product_id" />
           <ScalarProperty Name="customer_id" ColumnName="customer_id" />
@@ -32,6 +33,9 @@
     <EntitySetMapping Name="customer_reg">
       <EntityTypeMapping TypeName="tipltraineeModel.customer_reg">
         <MappingFragment StoreEntitySet="customer_reg">
+          <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
           <ScalarProperty Name="customer_id" ColumnName="customer_id" />
           <ScalarProperty Name="fname" ColumnName="fname" />
           <ScalarProperty Name="lname" ColumnName="lname" />
@@ -118,6 +122,17 @@
           <ScalarProperty Name="order_id" ColumnName="order_id" />
           <ScalarProperty Name="amountpaid" ColumnName="amountpaid" />
           <ScalarProperty Name="paymenttype" ColumnName="paymenttype" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="contactUs">
+      <EntityTypeMapping TypeName="tipltraineeModel.contactU">
+        <MappingFragment StoreEntitySet="contactUs">
+          <ScalarProperty Name="subject" ColumnName="subject" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

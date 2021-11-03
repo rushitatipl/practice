@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "verifyEmail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+ {
+<div class="alert alert-success">
+    <strong>Your Account has been activate successfuly. Click here to @Html.ActionLink("Login", "CreateLogin", "online")</strong>
+</div>
+}
+else
+{
+<div class="alert alert-danger">
+    <strong>Error! </strong>@ViewBag.Message
+</div>
+ }
+
+

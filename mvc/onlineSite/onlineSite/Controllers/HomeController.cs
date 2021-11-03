@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using onlineSite.Models;
 
 namespace onlineSite.Controllers
 {
     public class HomeController : Controller
     {
+     
         public ActionResult Index()
         {
-            return View();
+            using(DbModel db=new DbModel())
+            {
+                return View(db.products.ToList());
+            }
+           
         }
 
         public ActionResult About()

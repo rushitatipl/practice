@@ -1,0 +1,13 @@
+To Do Step :-
+
+1)Create Database(tiplUser) in SQLserver.
+
+2)Run Script.sql.
+
+3)Install framework 4.7.2 and above
+
+4)Connection.
+
+5)Set smtp mail configuration in web.config
+
+6)executed code.

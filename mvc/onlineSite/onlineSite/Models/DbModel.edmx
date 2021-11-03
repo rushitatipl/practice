@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="tipltraineeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="tipltraineeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="cart">
           <Key>
             <PropertyRef Name="cartid" />
@@ -13,6 +13,7 @@
           <Property Name="product_id" Type="int" Nullable="false" />
           <Property Name="customer_id" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="cartstatusid" Type="int" Nullable="false" />
+          <Property Name="quantity" Type="int" />
         </EntityType>
         <EntityType Name="cartstatus">
           <Key>
@@ -30,6 +31,16 @@
           <Property Name="parent_category_id" Type="int" Nullable="false" />
           <Property Name="category_status" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="contactUs">
+          <Key>
+            <PropertyRef Name="contactId" />
+          </Key>
+          <Property Name="contactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nchar" MaxLength="10" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="subject" Type="varchar" MaxLength="50" />
+          <Property Name="description" Type="varchar" MaxLength="150" />
+        </EntityType>
         <EntityType Name="customer_reg">
           <Key>
             <PropertyRef Name="customer_id" />
@@ -37,14 +48,17 @@
           <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="fname" Type="varchar" MaxLength="50" />
           <Property Name="lname" Type="varchar" MaxLength="50" />
-          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="254" />
           <Property Name="mobile" Type="varchar" MaxLength="50" />
-          <Property Name="password" Type="varchar" MaxLength="50" />
-          <Property Name="cpassword" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar(max)" />
+          <Property Name="cpassword" Type="nvarchar(max)" />
           <Property Name="profile" Type="varchar" MaxLength="50" />
           <Property Name="country" Type="varchar" MaxLength="50" />
           <Property Name="state" Type="varchar" MaxLength="50" />
           <Property Name="city" Type="varchar" MaxLength="50" />
+          <Property Name="IsEmailVerified" Type="bit" />
+          <Property Name="ActivationCode" Type="uniqueidentifier" />
+          <Property Name="ResetPasswordCode" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="feedbake">
           <Key>
@@ -118,6 +132,7 @@
           <EntitySet Name="cart" EntityType="Self.cart" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="cartstatus" EntityType="Self.cartstatus" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="category" EntityType="Self.category" Schema="trainee" store:Type="Tables" />
+          <EntitySet Name="contactUs" EntityType="Self.contactUs" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="customer_reg" EntityType="Self.customer_reg" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="feedbake" EntityType="Self.feedbake" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="Login" EntityType="Self.Login" Schema="trainee" store:Type="Tables" />
@@ -127,8 +142,7 @@
           <EntitySet Name="roles" EntityType="Self.roles" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="shippingdetail" EntityType="Self.shippingdetail" Schema="trainee" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="tipltraineeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -140,6 +154,7 @@
           <Property Name="product_id" Type="Int32" Nullable="false" />
           <Property Name="customer_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cartstatusid" Type="Int32" Nullable="false" />
+          <Property Name="quantity" Type="Int32" />
         </EntityType>
         <EntityType Name="cartstatu">
           <Key>
@@ -164,14 +179,17 @@
           <Property Name="customer_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="254" FixedLength="false" Unicode="false" />
           <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="cpassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="cpassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="profile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="country" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="state" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IsEmailVerified" Type="Boolean" />
+          <Property Name="ActivationCode" Type="Guid" />
+          <Property Name="ResetPasswordCode" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="feedbake">
           <Key>
@@ -253,7 +271,18 @@
           <EntitySet Name="products" EntityType="Self.product" />
           <EntitySet Name="roles" EntityType="Self.role" />
           <EntitySet Name="shippingdetails" EntityType="Self.shippingdetail" />
+          <EntitySet Name="contactUs" EntityType="tipltraineeModel.contactU" />
         </EntityContainer>
+        <EntityType Name="contactU">
+          <Key>
+            <PropertyRef Name="contactId" />
+          </Key>
+          <Property Name="contactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -263,6 +292,7 @@
           <EntitySetMapping Name="carts">
             <EntityTypeMapping TypeName="tipltraineeModel.cart">
               <MappingFragment StoreEntitySet="cart">
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
                 <ScalarProperty Name="cartid" ColumnName="cartid" />
                 <ScalarProperty Name="product_id" ColumnName="product_id" />
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
@@ -291,6 +321,9 @@
           <EntitySetMapping Name="customer_reg">
             <EntityTypeMapping TypeName="tipltraineeModel.customer_reg">
               <MappingFragment StoreEntitySet="customer_reg">
+                <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
+                <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+                <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
                 <ScalarProperty Name="customer_id" ColumnName="customer_id" />
                 <ScalarProperty Name="fname" ColumnName="fname" />
                 <ScalarProperty Name="lname" ColumnName="lname" />
@@ -377,6 +410,17 @@
                 <ScalarProperty Name="order_id" ColumnName="order_id" />
                 <ScalarProperty Name="amountpaid" ColumnName="amountpaid" />
                 <ScalarProperty Name="paymenttype" ColumnName="paymenttype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="contactUs">
+            <EntityTypeMapping TypeName="tipltraineeModel.contactU">
+              <MappingFragment StoreEntitySet="contactUs">
+                <ScalarProperty Name="subject" ColumnName="subject" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="contactId" ColumnName="contactId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -1,0 +1,19 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("Logout", "online", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            <a href="javascript:document.getElementById('logoutForm').submit()" style="font-size:15px;color:black">Logout</a>
+        }
+    }
+</div>
+ @using (Html.BeginForm("Logout", "User", FormMethod.Post, new { id = "logoutForm" }))
+        {
+<a href="javascript:document.getElementById('logoutForm').submit()" style="font-size:15px;color:black">Logout</a>
+        }

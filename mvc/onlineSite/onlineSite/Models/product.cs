@@ -11,8 +11,7 @@ namespace onlineSite.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Web;
-
+    
     public partial class product
     {
         public int p_id { get; set; }
@@ -24,6 +23,5 @@ namespace onlineSite.Models
         public string category_id { get; set; }
         public byte[] createddate { get; set; }
         public int quantity { get; set; }
-        public HttpPostedFileBase ImageFile{ get; set; }
     }
 }

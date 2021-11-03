@@ -24,7 +24,7 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in (List<Item>)Session["cart"]) {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.product_id)

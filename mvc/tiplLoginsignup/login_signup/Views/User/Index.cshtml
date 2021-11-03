@@ -1,0 +1,49 @@
+﻿@model System.Data.DataTable
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div>
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("Logout", "online", FormMethod.Post, new { id = "logoutForm" }))
+        {
+            <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
+        }
+    }
+</div>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+        <th>Date Of Birth</th>
+        <th></th>
+    </tr>
+    @for (int i = 0; i < Model.Rows.Count; i++)
+    {
+<tr>
+    <td>@Model.Rows[i][1]</td>
+    <td>@Model.Rows[i][2]</td>
+    <td>@Model.Rows[i][3]</td>
+    <td>@Model.Rows[i][4]</td>
+    <td>@Model.Rows[i][5]</td>
+    <td>@Model.Rows[i][6]</td>
+    <td>@Model.Rows[i][7]</td>
+    <td>@Model.Rows[i][8]</td>
+    <td>@Model.Rows[i][9]</td>
+    <td>@Model.Rows[i][10]</td>
+    <td>@Model.Rows[i][11]</td>
+   
+    <td>
+        <a href="@Url.Action("Edit","Stud",new {@id=@Model.Rows[i][0]})">Edit</a>
+        <a href="@Url.Action("Delete","Stud",new {@id=@Model.Rows[i][0]})">Delete</a>
+    </td>
+</tr>
+
+
+    }
+</table>
+<a href="@Url.Action("Create","Stud")">Add Student</a>

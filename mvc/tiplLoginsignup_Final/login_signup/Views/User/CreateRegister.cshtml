@@ -1,0 +1,197 @@
+﻿@model login_signup.Models.registerModel
+
+@{
+    ViewBag.Title = "CreateRegister";
+}
+
+@if (ViewBag.msg != null)
+{ 
+    <div>@ViewBag.msg</div>
+}
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+<div id="main-container" class="main-container">
+    <div id="inner-container" class="inner-container">
+
+        <div id="middle">
+            <section class="common-section collegebol-predictor-section">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="cmn-heading">Register</h1>
+                        </div>
+
+                        <div class="col-md-12">
+                            <div class="register-step-cnt">
+                                <div class="register-steps-area">
+                                    <ul>
+                                        <li class="active"><span>1</span></li>
+                                        <li><span>2</span></li>
+                                        <li><span>3</span></li>
+                                
+
+                                    </ul>
+                                </div>
+                                <div class="register-steps-form">
+                                    <h2 class="cmn-blk-hd">Sign Up Basic Details</h2>
+
+                                    
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-row">
+                                                <div class="form-label">First Name:</div>
+                                                <div class="form-cnt-area">
+
+                                                    @Html.EditorFor(model => model.Firstname, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Firstname, "", new { @class = "text-danger" })
+
+
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-row">
+                                                <div class="form-label">Last Name:</div>
+                                                <div class="form-cnt-area">
+                                                    @Html.EditorFor(model => model.Lastname, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Lastname, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-row">
+                                                <div class="form-label">Gender:</div>
+                                                <div class="form-cnt-area">
+                                                    @Html.RadioButtonFor(model => model.Gender, "Male")
+                                                    <span style="padding-right:20px">Male</span>
+
+                                                    @Html.RadioButtonFor(model => model.Gender, "female")
+                                                    <span style="padding-right:20px">FeMale</span>
+
+                                                    @Html.RadioButtonFor(model => model.Gender, "other")
+                                                    <span>Other</span>
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+
+
+                                        </div>
+
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-row">
+                                                <div class="form-label">Mobile Number:</div>
+                                                <div class="form-cnt-area">
+                                                    @Html.EditorFor(model => model.Mobile, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+
+
+                                        </div>
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-row">
+                                                <div class="form-label">E-mail Address:</div>
+                                                <div class="form-cnt-area">
+                                                    @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+
+                                        </div>
+
+
+
+
+
+                                        <div class="col-md-6">
+
+
+                                            <div class="form-row">
+                                                <div class="form-label">Password:</div>
+                                                <div class="form-cnt-area">
+                                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-6">
+
+
+                                            <div class="form-row">
+                                                <div class="form-label">Confirm Password:</div>
+                                                <div class="form-cnt-area">
+                                                    @Html.EditorFor(model => model.Cpassword, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Cpassword, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="form-row">
+                                                <div class="form-label">Current Profile:</div>
+                                                <div class="form-cnt-area">
+                                                    @Html.EditorFor(model => model.Profile, new { htmlAttributes = new { @class = "form-control" } })
+                                                    @Html.ValidationMessageFor(model => model.Profile, "", new { @class = "text-danger" })
+                                                </div>
+                                                <div class="clear"></div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+
+                                    <div class="col-lg-12">
+                                        <div class="text-center">
+                                            @ViewBag.msg
+                                            <a href="#"><input type="submit" value="Create" class="cmn-btn" /></a>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+</div>
+
+       
+}
+
+
+
+

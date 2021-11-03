@@ -37,7 +37,8 @@ namespace onlineSite.Controllers
             if (cateId != null)
 
             {
-                cd = JsonConvert.DeserializeObject<categotyDetail>(JsonConvert.SerializeObject(_genericWork.GetRepositoryInstance<category>().getFirstOrDeafault(cateId)));
+                cd = JsonConvert.DeserializeObject<categotyDetail>(JsonConvert.SerializeObject(_genericWork.GetRepositoryInstance<category>()
+                    .getFirstOrDeafault(cateId)));
             }
             else
             {

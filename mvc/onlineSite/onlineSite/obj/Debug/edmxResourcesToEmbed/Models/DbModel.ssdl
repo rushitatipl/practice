@@ -8,6 +8,7 @@
     <Property Name="product_id" Type="int" Nullable="false" />
     <Property Name="customer_id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="cartstatusid" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" />
   </EntityType>
   <EntityType Name="cartstatus">
     <Key>
@@ -25,6 +26,16 @@
     <Property Name="parent_category_id" Type="int" Nullable="false" />
     <Property Name="category_status" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="contactUs">
+    <Key>
+      <PropertyRef Name="contactId" />
+    </Key>
+    <Property Name="contactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="nchar" MaxLength="10" />
+    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="subject" Type="varchar" MaxLength="50" />
+    <Property Name="description" Type="varchar" MaxLength="150" />
+  </EntityType>
   <EntityType Name="customer_reg">
     <Key>
       <PropertyRef Name="customer_id" />
@@ -32,14 +43,17 @@
     <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="fname" Type="varchar" MaxLength="50" />
     <Property Name="lname" Type="varchar" MaxLength="50" />
-    <Property Name="email" Type="varchar" MaxLength="50" />
+    <Property Name="email" Type="varchar" MaxLength="254" />
     <Property Name="mobile" Type="varchar" MaxLength="50" />
-    <Property Name="password" Type="varchar" MaxLength="50" />
-    <Property Name="cpassword" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="nvarchar(max)" />
+    <Property Name="cpassword" Type="nvarchar(max)" />
     <Property Name="profile" Type="varchar" MaxLength="50" />
     <Property Name="country" Type="varchar" MaxLength="50" />
     <Property Name="state" Type="varchar" MaxLength="50" />
     <Property Name="city" Type="varchar" MaxLength="50" />
+    <Property Name="IsEmailVerified" Type="bit" />
+    <Property Name="ActivationCode" Type="uniqueidentifier" />
+    <Property Name="ResetPasswordCode" Type="nvarchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="feedbake">
     <Key>
@@ -113,6 +127,7 @@
     <EntitySet Name="cart" EntityType="Self.cart" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="cartstatus" EntityType="Self.cartstatus" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="category" EntityType="Self.category" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="contactUs" EntityType="Self.contactUs" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="customer_reg" EntityType="Self.customer_reg" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="feedbake" EntityType="Self.feedbake" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="Login" EntityType="Self.Login" Schema="trainee" store:Type="Tables" />
