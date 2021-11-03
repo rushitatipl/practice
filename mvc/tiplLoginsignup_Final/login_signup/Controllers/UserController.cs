@@ -12,8 +12,25 @@ using System.Net;
 using System.Web.Security;
 using System.Web.Helpers;
 
+//  Controller : UserController
+  
+  // Author1: CNET technology () 
+  // Author2: I worked alone  
+  // Date:    03/11/2021
+  
+  // 
+  // Function   : UserController
+  //
+  // Description: This is UserController for Login and Signup With OTP functionallity. 
+  // 
+ 
+  
+  // Return     : Redirect on Specific View 
+
+
 namespace login_signup.Controllers
 {
+    
     public class UserController : Controller
     {
         string Connection = ConfigurationManager.ConnectionStrings["DB"].ConnectionString;
