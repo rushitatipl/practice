@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "prod";
+    Layout = "~/Views/Shared/_AdminLayoutPage1.cshtml";
+}
+@using onlineSite.Models
+<h2>prod</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <h3>Products List</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Price</th>
+            <th>Buy</th>
+        </tr>
+        @foreach (product product in ViewBag.products)
+        {
+            <tr>
+                <td>@product.p_id</td>
+                <td>@product.p_name</td>
+                <td>
+                    <a href="@Url.Action("Buy", "online", new { id = product.p_id })">Buy Now</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>

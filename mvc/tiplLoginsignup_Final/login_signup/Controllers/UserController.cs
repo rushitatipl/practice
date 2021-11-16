@@ -12,22 +12,19 @@ using System.Net;
 using System.Web.Security;
 using System.Web.Helpers;
 
-//  Controller : UserController
-  
-  // Author1: CNET technology () 
-  // Author2: I worked alone  
-  // Date:    03/11/2021
-  
-  // 
-  // Function   : UserController
-  //
-  // Description: This is UserController for Login and Signup With OTP functionallity. 
-  // 
- 
-  
-  // Return     : Redirect on Specific View 
 
 
+/* 
+    @Controller UserController
+    @Parama otp as integer
+    @Author1: EMP1 - TIPL
+    @Author2: EMP2 - TIPL
+    @Date:    03-Nov-2021
+    @Description : This is UserController for Login and Signup With OTP functionallity
+    @AdditionalCheck : Null
+    @Return :  Redirect on Specific View As per Controller logic
+
+    */
 namespace login_signup.Controllers
 {
     
@@ -56,8 +53,19 @@ namespace login_signup.Controllers
             return View();
         }
 
-        //Is Email Exist
 
+
+        /* 
+      @function IsValidUser
+      @Parama otp as integer
+      @Author1: EMP1 - TIPL
+      @Author2: EMP2 - TIPL
+      @Date:    03-Nov-2021
+      @Description : verify OTP
+      @AdditionalCheck : Null
+      @Return : Null
+
+      */
 
         private bool IsValidUser(int otp)
         {
@@ -65,12 +73,8 @@ namespace login_signup.Controllers
             bool IsValid = false;
             SqlConnection sqlcon = new SqlConnection(Connection);
             string query = "select Otp from logandreg where Email='" + mail + "'";
-            //string query = "select Otp=@otp from logandreg where Email=@mail";
-
+           
             DataTable dt = new DataTable();
-
-
-
 
             if (ConnectionState.Closed == sqlcon.State)
             {
@@ -99,7 +103,17 @@ namespace login_signup.Controllers
             return IsValid;
         }
 
+        /* 
+      @function IsLoginUser
+      @Parama emailId as String,Password as string
+      @Author1: EMP1 - TIPL
+      @Author2: EMP2 - TIPL
+      @Date:    03-Nov-2021
+      @Description : check username and password is valid or not at login time
+      @AdditionalCheck : Null
+      @Return : Null
 
+      */
         private bool IsLoginUser(string Email, string Password)
         {
            // bool active = true;
@@ -135,12 +149,11 @@ namespace login_signup.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult loginUser(registerModel model)
         {
-            bool isActive =Convert.ToBoolean(Session["isActive"]);
-            // userActive();
+            
           
                 if (IsLoginUser(model.Email, model.Password))
                 {
-                    //FormsAuthentication.SetAuthCookie(model.Email, false);
+                    
                     return RedirectToAction("Index", "User");
                 }
                 else
@@ -151,7 +164,7 @@ namespace login_signup.Controllers
                 }
             
             
-           // return View(model);
+         
         }
 
         public ActionResult welcome()
@@ -168,26 +181,9 @@ namespace login_signup.Controllers
             }
 
 
-
-            //if (id == 1)
-            //{
-            //    resendOtp();
-            //}
-            //else
-            //{
-
-            //}
             return View(new registerModel());
         }
-        //[HttpPost]
-        //public ActionResult otppass(int id)
-        //{
-        //    //if (id == 1)
-        //    //{
-        //    //    resendOtp();
-        //    //}
-        //    return View();
-        //}
+        
 
         [HttpPost]
         public ActionResult otppass(registerModel model, string text)
@@ -202,16 +198,13 @@ namespace login_signup.Controllers
             {
                 
                 string _Email = Session["email"].ToString();
-                //int _Otp = GenerateOTP();
-                // OTP Updattion Start here
-               bool status = true;
+                bool status = true;
                 string strOtpUpdateQuery = "update logandreg set IsEmailVerified='" + status + "' where Email='" + _Email + "'";
                 Update(strOtpUpdateQuery);
                 Session["isActive"] = model.IsEmailVerified;
                 return RedirectToAction("welcome");
 
-               // ModelState.Clear();
-                //@Html.EditorFor.
+              
             }
 
             ModelState.Clear();
@@ -219,32 +212,22 @@ namespace login_signup.Controllers
            
         }
 
-       
+        /* 
+       @function sendvarificationlink
+       @Parama emailId as String,otp as Integer
+       @Author1: EMP1 - TIPL
+       @Author2: EMP2 - TIPL
+       @Date:    03-Nov-2021
+       @Description : Send OTP to user for Login
+       @AdditionalCheck : Null
+       @Return : Null
 
+       */
 
-        //private string GenerateOtp()
-        //{
-        //    int min = 100000;
-        //    int max = 999900;
-        //    int otp = 0;
-        //    Random rdm = new Random();
-        //    otp = rdm.Next(min, max);
-        //    return otp.ToString();
-        //    // return "123456";
-
-        //}
-
-       
         [NonAction]
         [ValidateAntiForgeryToken]
         public void sendvarificationlink(string emailId, int otp)
         {
-
-            // Random rdm = new Random();
-            //string otp = rdm.Next(100000, 999900).ToString();
-
-            //var scheme = Request.Url.Scheme;
-            //var host = Request.Url.Host;
 
             var verifyUrl = "/User/" + "VerifyAccount" + "/";
             var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, verifyUrl);
@@ -259,9 +242,6 @@ namespace login_signup.Controllers
             body = "<br/><br/>We are excited to tell you that your online Shop Acccount is " +
                  "Successfully created . Please click on the below link Verify your account" +
                  "<br/><br/><a href='" + otp + "'>" + otp + "</a>";
-
-
-
 
             var smtp = new SmtpClient
             {
@@ -284,23 +264,6 @@ namespace login_signup.Controllers
 
 
         }
-
-        [NonAction]
-        [ValidateAntiForgeryToken]
-        public void updateOtp(string email)
-        {
-            using (SqlConnection sqlcon = new SqlConnection(Connection))
-            {
-
-                //sqlcon.Open();
-                //string query = "update logandreg SET Otp=@Otp where email=@Email";
-                //SqlCommand sqcmd = new SqlCommand(query, sqlcon);
-                //sqcmd.Parameters.AddWithValue("@Otp", "1234");
-                //sqcmd.ExecuteNonQuery();
-            }
-
-        }
-
 
         public ActionResult CreateRegister()
         {
@@ -366,6 +329,18 @@ namespace login_signup.Controllers
             return RedirectToAction("otppass");
         }
 
+        /* 
+       @function IsEmailExist
+       @Parama emailId as String
+       @Author1: EMP1 - TIPL
+       @Author2: EMP2 - TIPL
+       @Date:    03-Nov-2021
+       @Description : check  input email is already exist or not
+       @AdditionalCheck : Null
+       @Return : Null
+
+       */
+
         [NonAction]
         public bool IsEmailExist(string Email)
         {
@@ -386,25 +361,41 @@ namespace login_signup.Controllers
             }
         }
 
-        
+        /* 
+       @function userActive
+       @Parama :Model as RegistrModel
+       @Author1: EMP1 - TIPL
+       @Author2: EMP2 - TIPL
+       @Date:    03-Nov-2021
+       @Description : if OTP verify,isActive User State is true
+       @AdditionalCheck : Null
+       @Return : Null
+
+       */
+
         [NonAction]
         public void userActive(registerModel model)
         {
             string _Email = Session["email"].ToString();
-            //int _Otp = GenerateOTP();
-            // OTP Updattion Start here
+            
             bool status = true;
             string strOtpUpdateQuery = "update logandreg set IsEmailVerified='" + status + "' where Email='" + _Email + "'";
 
             Update(strOtpUpdateQuery);
-            //if (_queryResponse == 1)
-            //{
-            //    //sendvarificationlink(_Email, _Otp);
-            //}
-
-            // OTP Updation End
+           
 
         }
+
+        /* 
+      @function resendOtp
+      @Author1: EMP1 - TIPL
+      @Author2: EMP2 - TIPL
+      @Date:    03-Nov-2021
+      @Description : Resend OTP To User 
+      @AdditionalCheck : Null
+      @Return : Null
+
+      */
 
         public void resendOtp()
         {
@@ -424,21 +415,17 @@ namespace login_signup.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult ResendOtp()
-        {
-            try
-            {
-                resendOtp();
-                // TODO: Add update logic here
+        /* 
+       @function Update
+       @Parameter :strQuery as string
+       @Author1: EMP1 - TIPL
+       @Author2: EMP2 - TIPL
+       @Date:    03-Nov-2021
+       @Description : Reusable Update function ,Use for all update query
+       @AdditionalCheck : Null
+       @Return : Null
 
-                return RedirectToAction("otppass");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+       */
 
         public int Update(string strQuery)
         {
@@ -471,6 +458,17 @@ namespace login_signup.Controllers
             return View();
         }
 
+
+        /* 
+       @function GenerateOTP
+       @Author1: EMP1 - TIPL
+       @Author2: EMP2 - TIPL
+       @Date:    03-Nov-2021
+       @Description : generate random OTP
+       @AdditionalCheck : Null
+       @Return : Random OTP
+
+       */
         public int GenerateOTP()
         {
             Random rdm = new Random();

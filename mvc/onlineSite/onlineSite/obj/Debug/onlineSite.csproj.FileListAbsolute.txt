@@ -81,7 +81,6 @@ D:\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.csproj.CoreCompileInputs.cache
 D:\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.csproj.CopyComplete
 D:\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.dll
 D:\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.pdb
-D:\github\practice\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.csproj.AssemblyReference.cache
 D:\github\practice\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.csproj.CoreCompileInputs.cache
 D:\github\practice\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.dll
 D:\github\practice\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.pdb
@@ -164,3 +163,4 @@ D:\github\practice\mvc\onlineSite\onlineSite\bin\Newtonsoft.Json.xml
 D:\github\practice\mvc\onlineSite\onlineSite\bin\Antlr3.Runtime.pdb
 D:\github\practice\mvc\onlineSite\onlineSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\github\practice\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.csproj.CopyComplete
+D:\github\practice\mvc\onlineSite\onlineSite\obj\Debug\onlineSite.csproj.AssemblyReference.cache

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<onlineSite.Models.product>
+﻿@model IEnumerable<onlineSite.Models.productt>
 
 @{
     ViewBag.Title = "Index";
@@ -49,6 +49,7 @@
                         <a href="javascript:document.getElementById('logoutForm').submit()">Logout</a>
                     }
                 }
+                Ip Address:  @ViewBag.ip
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                 <div class="custom-select-box">
@@ -337,23 +338,19 @@
                 <div class="col-lg-3 col-md-6 special-grid best-seller">
                     <div class="products-single fix">
                         <div class="box-img-hover">
-                            <div class="type-lb">
-                                <p class="sale">Sale</p>
+                            <div class="type-lb btn">
+                                <p class="sale" >@Html.ActionLink("Add To Cart", "Buy", new { id = item.p_id }, new { htmlAttributes = new { @class = "cart" } })</p>
                             </div>
-                            <img src="../Image/@Url.Content(item.p_img)" width="100px" height="200px" class="img-fluid" alt="Image">
+                            <div class="m-resp-img-div">
+                                <img src="../Image/@Url.Content(item.p_img)"  class="m-resp-img img-fluid" alt="Image">
+                            </div>
                             <div class="mask-icon">
                                 <ul>
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
                                 </ul>
-                                @*@Html.ActionLink("Add", "addtocart", new { id = item.p_id })*@
-                                @*@using (Html.BeginForm("addtocart", "online", new { productid = item.p_id }, FormMethod.Post))*@
-                                {
-
-
-                                <a class="cart" href="#"><input class="cart" style="color:black; border:none; background-color:red" t value="Add to Cart"></a>
-                                }
+                               
                             </div>
                         </div>
                         <div class="why-text">
@@ -366,6 +363,8 @@
         </div>
     </div>
 </div>
+
+
 <!-- End Products  -->
 <!-- Start Blog  -->
 <div class="latest-blog">

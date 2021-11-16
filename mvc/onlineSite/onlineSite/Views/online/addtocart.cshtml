@@ -1,4 +1,4 @@
-﻿@model IEnumerable<onlineSite.Models.cart>
+﻿@model IEnumerable<onlineSite.Models.product>
 
 @{
     ViewBag.Title = "addtocart";
@@ -13,32 +13,62 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.product_id)
+            @Html.DisplayNameFor(model => model.p_id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.customer_id)
+            @Html.DisplayNameFor(model => model.p_name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.cartstatusid)
+            @Html.DisplayNameFor(model => model.product_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_desc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_img)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.p_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.category_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in (List<Item>)Session["cart"]) {
+@foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.product_id)
+            @Html.DisplayFor(modelItem => item.p_id)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.customer_id)
+            @Html.DisplayFor(modelItem => item.p_name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.cartstatusid)
+            @Html.DisplayFor(modelItem => item.product_price)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.cartid }) |
-            @Html.ActionLink("Details", "Details", new { id=item.cartid }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.cartid })
+            @Html.DisplayFor(modelItem => item.p_desc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_img)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.p_status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.category_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
     </tr>
 }

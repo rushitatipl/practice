@@ -173,30 +173,33 @@ namespace login_signup.Controllers
         //}
 
         [HttpPost]
-        public ActionResult otppass(registerModel model, string text)
+        public ActionResult otppass(registerModel model, string Resend, string Verify)
         {
-            if (model.Otp == 0 )
-            {
-                resendOtp();
-                return View();
-            }
-           
-            if (IsValidUser(model.Otp))
+            if (!string.IsNullOrEmpty(Resend))
             {
                 
-                string _Email = Session["email"].ToString();
-                //int _Otp = GenerateOTP();
-                // OTP Updattion Start here
-               bool status = true;
-                string strOtpUpdateQuery = "update logandreg set IsEmailVerified='" + status + "' where Email='" + _Email + "'";
-                Update(strOtpUpdateQuery);
-                Session["isActive"] = model.IsEmailVerified;
-                return RedirectToAction("welcome");
-
-               // ModelState.Clear();
-                //@Html.EditorFor.
+                    resendOtp();
+                    return View();
+                
             }
+            if (!string.IsNullOrEmpty(Verify))
+            {
+                if (IsValidUser(model.Otp))
+                {
 
+                    string _Email = Session["email"].ToString();
+                    //int _Otp = GenerateOTP();
+                    // OTP Updattion Start here
+                    bool status = true;
+                    string strOtpUpdateQuery = "update logandreg set IsEmailVerified='" + status + "' where Email='" + _Email + "'";
+                    Update(strOtpUpdateQuery);
+                    Session["isActive"] = model.IsEmailVerified;
+                    return RedirectToAction("welcome");
+
+                    // ModelState.Clear();
+                    //@Html.EditorFor.
+                }
+            }
             ModelState.Clear();
             return View();
            

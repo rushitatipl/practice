@@ -8,14 +8,16 @@ using System.Web.Mvc;
 using System.Web.Security;
 using onlineSite.Models;
 
+
 namespace onlineSite.Controllers
 {
     public class onlineController : Controller
     {
         // GET: online
         [Authorize]
-        public ActionResult Index()
+        public ActionResult Index(productt pro)
         {
+            TempData["Category"] = pro;
             TimeZoneInfo timeZoneInfo;
             //DateTime dateTime;
             //Set the time zone information
@@ -23,18 +25,25 @@ namespace onlineSite.Controllers
             //Get date and time
             ViewBag.dateTime = TimeZoneInfo.ConvertTime(DateTime.Now, timeZoneInfo);
             // return View();
+           // GetIPAddress2();
+            string ip = Request.UserHostAddress;
+            ViewBag.ip = ip;
             using (DbModel db = new DbModel())
+            
             {
-
-                return View(db.products.ToList());
+               
+                return View(db.productts.ToList());
             }
-
+           
         }
-
+        
         // GET: online/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            using (DbModel db = new DbModel())
+            {
+                return View(db.products.Where(a => a.p_id == id).FirstOrDefault());
+            }
         }
 
         // GET: online/Create
@@ -54,6 +63,52 @@ namespace onlineSite.Controllers
             // return "123456";
 
         }
+
+        public ActionResult Buy(int id)
+        { DbModel db = new DbModel();
+           // productModel productModel = new productModel();
+            if (Session["cart"] == null)
+            {
+                List<productt> cart = new List<productt>();
+               
+                cart.Add(db.productts.Where(a=>a.p_id==id).FirstOrDefault());
+               Session["cart"] = cart;
+            }
+            else
+            {
+                List<productt> cart = (List<productt>)Session["cart"];
+                int index = isExist(id);
+                if (index != -1)
+                {
+                    //cart[index].Quantity++;
+                }
+                else
+                {
+                    cart.Add(db.productts.Where(a => a.p_id == id).FirstOrDefault());
+                }
+                Session["cart"] = cart;
+            }
+            // return RedirectToAction("Index");
+            return View();
+        }
+        public ActionResult Remove(int id)
+        {
+            List<productt> cart = (List<productt>)Session["cart"];
+            int index = isExist(id);
+            cart.RemoveAt(index);
+            Session["cart"] = cart;
+            //return RedirectToAction("Buy");
+            return View("Buy");
+        }
+        private int isExist(int id)
+        {
+            List<productt> cart = (List<productt>)Session["cart"];
+            for (int i = 0; i < cart.Count; i++)
+                if (cart[i].p_id.Equals(id))
+                    return i;
+            return -1;
+        }
+       
         // POST: online/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -214,9 +269,11 @@ namespace onlineSite.Controllers
         {
             using (DbModel db = new DbModel())
             {
-                 return View(db.products.ToList());
+                // return View(db.products.ToList());
+                ViewBag.lstproduct = db.products.ToList();
+                return View();
             }
-
+           
         }
         [HttpGet]
         public ActionResult CreateLogin()
@@ -329,7 +386,17 @@ namespace onlineSite.Controllers
             }
         }
 
-
+        
+        [NonAction]
+        public  string GetIp()
+        {
+            string ip = System.Web.HttpContext.Current.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+            if (string.IsNullOrEmpty(ip))
+            {
+                ip = System.Web.HttpContext.Current.Request.ServerVariables["REMOTE_ADDR"];
+            }
+            return ip;
+        }
         //Reset password
 
         public ActionResult ResetPassword(string id)
@@ -402,18 +469,44 @@ namespace onlineSite.Controllers
                 return View();
             }
         }
-
-        public ActionResult addtocart(int productid)
+       
+        public ActionResult addtocart(int ?productid, product pi)
         {
-            DbModel db = new DbModel();
-            if(Session["cart"] == null)
+            using (DbModel db = new DbModel())
             {
-                List<Item> cart = new List<Item>();
-                cart.Add(new Item(db.products.Find(productid),1));
-                Session["cart"] = cart;
-                //var prod = db.products.Find(productid);
+                return View(db.products.Where(a => a.p_id == productid).FirstOrDefault());
             }
-            return View("addtocart");
+            //DbModel db = new DbModel();
+            //return View(db.products.Where(a => a.p_id == productid).FirstOrDefault());
+            //if (TempData["Category"] != null)
+            //{
+            //    var Cat = (product)TempData["Category"];
+
+
+
+            //    var Productss = from p in db.products
+            //                    where p.p_id == productid
+            //                    select p;
+            //    //List<product> cart = new List<product>();
+            //    //cart.Add(db.products.Where(a => a.p_id == productid).FirstOrDefault());
+            //    //TempData["cart"] = cart;
+
+            //    return View(Productss.ToList());
+            //}
+            //else
+            //{
+            //    return View(db.products.ToList());
+            //}
+        }
+       
+
+        [HttpPost]
+        public ActionResult addtocart(int productid,string quantity, product pi)
+        {
+            var Data = TempData["Category"] as category;
+
+          
+            return RedirectToAction("Index");
         }
         // GET: online/Delete/5
         public ActionResult Delete(int id)

@@ -9,6 +9,8 @@
     <Property Name="customer_id" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="cartstatusid" Type="int" Nullable="false" />
     <Property Name="quantity" Type="int" />
+    <Property Name="price" Type="float" />
+    <Property Name="bill" Type="int" />
   </EntityType>
   <EntityType Name="cartstatus">
     <Key>
@@ -93,11 +95,25 @@
     </Key>
     <Property Name="p_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="p_name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="product_price" Type="int" Nullable="false" />
+    <Property Name="product_price" Type="int" />
     <Property Name="p_desc" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="p_img" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="p_status" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="category_id" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="category_id" Type="int" Nullable="false" />
+    <Property Name="createddate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productt">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="int" Nullable="false" />
+    <Property Name="p_name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="product_price" Type="float" Nullable="false" />
+    <Property Name="p_desc" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_img" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="p_status" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="category_id" Type="int" Nullable="false" />
     <Property Name="createddate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
     <Property Name="quantity" Type="int" Nullable="false" />
   </EntityType>
@@ -134,6 +150,7 @@
     <EntitySet Name="memberrole" EntityType="Self.memberrole" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="poll" EntityType="Self.poll" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="productt" EntityType="Self.productt" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="roles" EntityType="Self.roles" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="shippingdetail" EntityType="Self.shippingdetail" Schema="trainee" store:Type="Tables" />
   </EntityContainer>

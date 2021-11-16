@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tipl___Api", "Tipl___Api\Tipl___Api.csproj", "{25BD26EB-BE94-4C64-AD96-880D358B3585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mvc", "Mvc\Mvc.csproj", "{8B21AFDE-60BD-44B5-969D-6B15FE91E818}"
+	ProjectSection(ProjectDependencies) = postProject
+		{25BD26EB-BE94-4C64-AD96-880D358B3585} = {25BD26EB-BE94-4C64-AD96-880D358B3585}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25BD26EB-BE94-4C64-AD96-880D358B3585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25BD26EB-BE94-4C64-AD96-880D358B3585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25BD26EB-BE94-4C64-AD96-880D358B3585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25BD26EB-BE94-4C64-AD96-880D358B3585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B21AFDE-60BD-44B5-969D-6B15FE91E818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B21AFDE-60BD-44B5-969D-6B15FE91E818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B21AFDE-60BD-44B5-969D-6B15FE91E818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B21AFDE-60BD-44B5-969D-6B15FE91E818}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CD364E14-2794-46D8-BDFF-A6732BBEA389}
+	EndGlobalSection
+EndGlobal

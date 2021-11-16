@@ -5,7 +5,7 @@
 
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("otppass", "User", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
     <div id="main-container" class="main-container">
@@ -45,11 +45,11 @@
 
                                         <div class="col-lg-12">
                                             <div class="text-center">
-                                                <a href="#"><input type="submit" value="Verify" id="submit" class="cmn-btn" /></a> <br>
+                                                <a href="#"><input type="submit" value="Verify" id="submit" name="Verify" class="cmn-btn" /></a> <br>
                                                 <br><br>
 
                                                 <a href="#">
-                                                    <input type="submit" value="Resend One-Time password" id="process" class="cmn-btn" />
+                                                    <input type="submit" value="Resend" name="Resend" id="process" class="cmn-btn" />
                                                 </a> <br>
                                                 @*<a class="cmn-link" href="@Url.Action("otppass","User",new {id=1})"><strong>Resend One-Time password</strong></a> <br> <br>*@
 

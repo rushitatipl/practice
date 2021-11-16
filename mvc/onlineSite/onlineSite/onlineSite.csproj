@@ -140,6 +140,7 @@
     <Compile Include="Models\cart.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\cart11.cs" />
     <Compile Include="Models\cartstatu.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -150,6 +151,7 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CreateLogin.cs" />
+    <Compile Include="Models\createpro.cs" />
     <Compile Include="Models\customer_reg.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
@@ -187,6 +189,10 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\productDetail.cs" />
+    <Compile Include="Models\productModel.cs" />
+    <Compile Include="Models\productt.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\role.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
@@ -298,6 +304,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Image\download.jfif" />
     <Content Include="Image\lg.jfif" />
     <Content Include="Image\oppo.png" />
     <Content Include="Image\samsung.png" />
@@ -375,7 +382,6 @@
     <Content Include="Views\aadmin\EditProduct.cshtml" />
     <Content Include="Views\aadmin\CreateProduct.cshtml" />
     <Content Include="Views\online\productView.cshtml" />
-    <Content Include="Views\online\addtocart.cshtml" />
     <Content Include="Views\online\verifyEmail.cshtml" />
     <Content Include="Views\online\CreateLogin.cshtml" />
     <Content Include="Views\online\ForgotPassword.cshtml" />
@@ -385,9 +391,14 @@
     <Content Include="Views\online\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\online\contact.cshtml" />
+    <Content Include="Views\online\details.cshtml" />
+    <Content Include="Views\aadmin\details.cshtml" />
+    <Content Include="Views\aadmin\prod.cshtml" />
+    <Content Include="Views\online\Buy.cshtml" />
+    <Content Include="Views\online\addtocart.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\Image\" />
     <Folder Include="Content\fonts\" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,58 @@
+﻿@model Mvc.Models.mvcEmpModel
+
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+<h2>AddOrEdit</h2>
+
+
+
+<div class="form-group">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.e_id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.firstname)
+            @Html.EditorFor(model => model.firstname)
+            @Html.ValidationMessageFor(model => model.firstname)
+        </div>
+
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.lastname)
+            @Html.EditorFor(model => model.lastname)
+            @Html.ValidationMessageFor(model => model.lastname)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.phone_no)
+            @Html.EditorFor(model => model.phone_no)
+            @Html.ValidationMessageFor(model => model.phone_no)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.position)
+            @Html.EditorFor(model => model.position)
+            @Html.ValidationMessageFor(model => model.position)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.age)
+            @Html.EditorFor(model => model.age)
+            @Html.ValidationMessageFor(model => model.age)
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.salary)
+            @Html.EditorFor(model => model.salary)
+            @Html.ValidationMessageFor(model => model.salary)
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="submit" class="btn-default" />
+            <input type="reset" value="reset" class="btn-default" />
+        </div>
+    }
+</div>

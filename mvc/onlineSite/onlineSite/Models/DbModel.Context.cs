@@ -37,5 +37,6 @@ namespace onlineSite.Models
         public virtual DbSet<role> roles { get; set; }
         public virtual DbSet<shippingdetail> shippingdetails { get; set; }
         public virtual DbSet<contactU> contactUs { get; set; }
+        public virtual DbSet<productt> productts { get; set; }
     }
 }

@@ -16,11 +16,11 @@ namespace onlineSite.Models
     {
         public int p_id { get; set; }
         public string p_name { get; set; }
-        public int product_price { get; set; }
+        public Nullable<int> product_price { get; set; }
         public string p_desc { get; set; }
         public string p_img { get; set; }
         public string p_status { get; set; }
-        public string category_id { get; set; }
+        public int category_id { get; set; }
         public byte[] createddate { get; set; }
         public int quantity { get; set; }
     }

@@ -9,6 +9,8 @@
     <Property Name="customer_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="cartstatusid" Type="Int32" Nullable="false" />
     <Property Name="quantity" Type="Int32" />
+    <Property Name="price" Type="Int32" />
+    <Property Name="bill" Type="Int32" />
   </EntityType>
   <EntityType Name="cartstatu">
     <Key>
@@ -83,11 +85,11 @@
     </Key>
     <Property Name="p_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="p_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="product_price" Type="Int32" Nullable="false" />
+    <Property Name="product_price" Type="Int32" />
     <Property Name="p_desc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="p_img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="p_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="category_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="category_id" Type="Int32" Nullable="false" />
     <Property Name="createddate" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
     <Property Name="quantity" Type="Int32" Nullable="false" />
   </EntityType>
@@ -126,6 +128,7 @@
     <EntitySet Name="roles" EntityType="Self.role" />
     <EntitySet Name="shippingdetails" EntityType="Self.shippingdetail" />
     <EntitySet Name="contactUs" EntityType="tipltraineeModel.contactU" />
+    <EntitySet Name="productts" EntityType="tipltraineeModel.productt" />
   </EntityContainer>
   <EntityType Name="contactU">
     <Key>
@@ -136,5 +139,19 @@
     <Property Name="description" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
     <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="productt">
+    <Key>
+      <PropertyRef Name="p_id" />
+    </Key>
+    <Property Name="p_id" Type="Int32" Nullable="false" />
+    <Property Name="p_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="product_price" Type="Double" Nullable="false" />
+    <Property Name="p_desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="p_img" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="p_status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="category_id" Type="Int32" Nullable="false" />
+    <Property Name="createddate" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

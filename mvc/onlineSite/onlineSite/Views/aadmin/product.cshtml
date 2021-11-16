@@ -84,6 +84,7 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.p_img)
+                     
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.p_status)
@@ -96,8 +97,9 @@
                     </td>
                     <td>
                         @Html.ActionLink("Edit", "EditProduct", new { id = item.p_id }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.p_id }) |
-                        @Html.ActionLink("Delete", "DeleteUser", new { id = item.p_id })
+                        @Html.ActionLink("details", "details", new { id = item.p_id }) |
+                        @Html.ActionLink("Delete", "DeleteUser", new { id = item.p_id }) |
+                        
                     </td>
                 </tr>
             }

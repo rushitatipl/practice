@@ -19,5 +19,7 @@ namespace onlineSite.Models
         public string customer_id { get; set; }
         public int cartstatusid { get; set; }
         public Nullable<int> quantity { get; set; }
+        public Nullable<int> price { get; set; }
+        public Nullable<int> bill { get; set; }
     }
 }

@@ -23,9 +23,12 @@ namespace onlineSite.Controllers
         // GET: aadmin/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            using (DbModel db = new DbModel())
+            {
+                return View(db.products.Where(a => a.p_id == id).FirstOrDefault());
+            }
         }
-
+        
         public ActionResult categoty(string search,string option, int cid)
         {
                 DbModel db = new DbModel();
@@ -112,19 +115,30 @@ namespace onlineSite.Controllers
            
             else
             {
-                //var res = (from c in db.products
-                //           where c.IsDelete == true
-                //           select c);
+          
 
-                //if (res != true)
-                //{
-                  return View(db.products.ToList());
-                //}
+                return View(db.products.ToList());
 
 
             }
 
         }
+
+        public ActionResult prod(string id)
+        {
+            productModel productModel = new productModel();
+            ViewBag.products = productModel.findAll();
+            return View();
+            //List<product> pd = new List<product>();
+            //if (Session["cart"] == null)
+            //{
+            //    List<Item> cart = new List<Item>();
+            //    cart.Add(new Item { Product1 = productModel., Quantity = 1 });
+            //    Session["cart"] = cart;
+            //}
+        }
+
+        
         // GET: aadmin/Create
         public ActionResult CreateProduct()
         {
@@ -133,23 +147,56 @@ namespace onlineSite.Controllers
 
         // POST: aadmin/Create
         [HttpPost]
-        public ActionResult CreateProduct(product cat)
+        public ActionResult CreateProduct(product cat, HttpPostedFileBase file)
         {
-            //string filename=Path.GetFileNameWithoutExtension(cat)
-            try
+            if (file != null)
             {
-                using (DbModel db = new DbModel())
-                {
-                    db.products.Add(cat);
-                    db.SaveChanges();
-                }
+                DbModel db = new DbModel();
+                string ImageName = System.IO.Path.GetFileName(file.FileName);
+                string physicalPath = Server.MapPath("~/Image/" + ImageName);
 
-                return RedirectToAction("product");
+                // save image in folder
+                file.SaveAs(physicalPath);
+
+                //save new record in database
+                product newRecord = new product();
+                newRecord.quantity =Convert.ToInt32 (Request.Form["quantity"]);
+                newRecord.p_status = Request.Form["p_status"];
+                newRecord.p_name = Request.Form["p_name"];
+                newRecord.p_desc = Request.Form["p_desc"];
+                newRecord.product_price = Convert.ToInt32(Request.Form["product_price"]);
+                newRecord.category_id = Convert.ToInt32(Request.Form["category_id"]);
+
+                newRecord.p_img = ImageName;
+                db.products.Add(newRecord);
+                db.SaveChanges();
+
             }
-            catch
-            {
-                return View();
-            }
+            //Display records
+            return RedirectToAction("product");
+
+            //try
+            //{
+
+            //    using (DbModel db = new DbModel())
+            //    {
+            //        db.products.Add(cat);
+
+            //        //string path = Server.MapPath("~/App-Data/Image");
+            //        //string fileName = Path.GetFileName(cat.p_img.FileName);
+            //        //string fullpath = Path.Combine(path, fileName);
+            //        //cat.p_img.SaveAs(fullpath);
+
+            //        db.SaveChanges();
+
+            //    }
+
+            //    return RedirectToAction("product");
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
 
         }
 
