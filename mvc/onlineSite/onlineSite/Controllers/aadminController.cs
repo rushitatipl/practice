@@ -7,13 +7,15 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using onlineSite.Models;
+using System.Web.Hosting;
+
 
 namespace onlineSite.Controllers
 {
     public class aadminController : Controller
     {
 
-       
+  
         // GET: aadmin
         public ActionResult dashboard()
         {
@@ -124,18 +126,24 @@ namespace onlineSite.Controllers
 
         }
 
-        public ActionResult prod(string id)
+
+      
+        public ActionResult prod(string id, string search, string option,product pr)
         {
-            productModel productModel = new productModel();
-            ViewBag.products = productModel.findAll();
+            if (option == "p_name")
+            {
+            //    string[] searchstrings = search.Split(' ');
+            //    var suggestions = (from a in pr.p_name
+            //                       from w in searchstrings
+            //                       where a.Contains(w.ToLower())
+            //                       select a).Distinct();
+            }
+         
             return View();
-            //List<product> pd = new List<product>();
-            //if (Session["cart"] == null)
-            //{
-            //    List<Item> cart = new List<Item>();
-            //    cart.Add(new Item { Product1 = productModel., Quantity = 1 });
-            //    Session["cart"] = cart;
-            //}
+            //productModel productModel = new productModel();
+            //ViewBag.products = productModel.findAll();
+            //return View();
+
         }
 
         
@@ -147,60 +155,88 @@ namespace onlineSite.Controllers
 
         // POST: aadmin/Create
         [HttpPost]
-        public ActionResult CreateProduct(product cat, HttpPostedFileBase file)
+        public ActionResult CreateProduct(productModel model, List<HttpPostedFileBase> file)
         {
-            if (file != null)
+            try
             {
-                DbModel db = new DbModel();
-                string ImageName = System.IO.Path.GetFileName(file.FileName);
-                string physicalPath = Server.MapPath("~/Image/" + ImageName);
 
-                // save image in folder
-                file.SaveAs(physicalPath);
+                if (file != null)
+                {
+                    string ImageName;
 
-                //save new record in database
-                product newRecord = new product();
-                newRecord.quantity =Convert.ToInt32 (Request.Form["quantity"]);
-                newRecord.p_status = Request.Form["p_status"];
-                newRecord.p_name = Request.Form["p_name"];
-                newRecord.p_desc = Request.Form["p_desc"];
-                newRecord.product_price = Convert.ToInt32(Request.Form["product_price"]);
-                newRecord.category_id = Convert.ToInt32(Request.Form["category_id"]);
+                    product newRecord = new product();
+                    DbModel db = new DbModel();
 
-                newRecord.p_img = ImageName;
-                db.products.Add(newRecord);
-                db.SaveChanges();
+                    foreach (var files in file)
+                    {
+                        ImageName = System.IO.Path.GetFileName(files.FileName);
+                        string physicalPath = HostingEnvironment.MapPath("~/Image/" + ImageName);
+                        files.SaveAs(physicalPath);
 
+                        newRecord.p_img += ImageName + ",";
+                        Session["img"] = newRecord.p_img;
+                        
+                      
+
+
+                    
+                    }
+                    // save image in folder
+                   //  var user = Session["user"].ToString();
+
+                    //save new record in database
+                   
+                    newRecord.quantity = model.quantity;
+                    // newRecord.quantity =Convert.ToInt32 (Request.Form["quantity"]);
+                    newRecord.p_status = model.p_status;
+                    newRecord.p_name = model.p_name;
+                    newRecord.p_desc = model.p_desc;
+                   
+                    newRecord.product_price = model.product_price;
+                    newRecord.category_id = model.category_id;
+
+                    var img = Session["img"].ToString();
+                    db.products.Add(newRecord);
+                    db.SaveChanges();
+                    var latestId = newRecord.p_id;
+
+                    childProduct cproduct = new childProduct();
+                    string[] sp = img.Split(',');
+
+                    for (byte i = 1; i < sp.Length; i++)
+                    { 
+                    
+                    cproduct.pname = model.p_name;
+                    cproduct.image = sp[i];
+                    cproduct.pid = latestId;
+                    db.childProducts.Add(cproduct);
+                    db.SaveChanges();
+                    }
+                }
+                //Display records
+                return RedirectToAction("product");
             }
-            //Display records
-            return RedirectToAction("product");
-
-            //try
-            //{
-
-            //    using (DbModel db = new DbModel())
-            //    {
-            //        db.products.Add(cat);
-
-            //        //string path = Server.MapPath("~/App-Data/Image");
-            //        //string fileName = Path.GetFileName(cat.p_img.FileName);
-            //        //string fullpath = Path.Combine(path, fileName);
-            //        //cat.p_img.SaveAs(fullpath);
-
-            //        db.SaveChanges();
-
-            //    }
-
-            //    return RedirectToAction("product");
-            //}
-            //catch
-            //{
-            //    return View();
-            //}
+            catch (System.Data.Entity.Validation.DbEntityValidationException dbEx)
+            {
+                Exception raise = dbEx;
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        string message = string.Format("{0}:{1}",
+                            validationErrors.Entry.Entity.ToString(),
+                            validationError.ErrorMessage);
+                        // raise a new exception nesting
+                        // the current instance as InnerException
+                        raise = new InvalidOperationException(message, raise);
+                    }
+                }
+                throw raise;
+            }
 
         }
 
-        // 
+        // show product
                
         
 

@@ -87,3 +87,6 @@ D:\github\practice\mvc\Tipl___Api\Tipl___Api\obj\Debug\Tipl___Api.csproj.CoreCom
 D:\github\practice\mvc\Tipl___Api\Tipl___Api\obj\Debug\Tipl___Api.csproj.CopyComplete
 D:\github\practice\mvc\Tipl___Api\Tipl___Api\obj\Debug\Tipl___Api.dll
 D:\github\practice\mvc\Tipl___Api\Tipl___Api\obj\Debug\Tipl___Api.pdb
+D:\github\practice\mvc\Tipl___Api\Tipl___Api\bin\System.Web.Cors.dll
+D:\github\practice\mvc\Tipl___Api\Tipl___Api\bin\System.Web.Http.Cors.dll
+D:\github\practice\mvc\Tipl___Api\Tipl___Api\bin\System.Web.Http.Cors.xml

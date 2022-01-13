@@ -17,7 +17,7 @@
         <EntityTypeShape EntityType="tipltraineeModel.role" Width="1.5" PointX="6.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="tipltraineeModel.shippingdetail" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
         <EntityTypeShape EntityType="tipltraineeModel.contactU" Width="1.5" PointX="7.375" PointY="8.75" />
-        <EntityTypeShape EntityType="tipltraineeModel.productt" Width="1.5" PointX="9.375" PointY="0.75" />
+        <EntityTypeShape EntityType="tipltraineeModel.childProduct" Width="1.5" PointX="9.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

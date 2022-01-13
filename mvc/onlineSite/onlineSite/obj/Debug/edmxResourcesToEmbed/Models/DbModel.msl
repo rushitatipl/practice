@@ -138,18 +138,13 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="productts">
-      <EntityTypeMapping TypeName="tipltraineeModel.productt">
-        <MappingFragment StoreEntitySet="productt">
-          <ScalarProperty Name="quantity" ColumnName="quantity" />
-          <ScalarProperty Name="createddate" ColumnName="createddate" />
-          <ScalarProperty Name="category_id" ColumnName="category_id" />
-          <ScalarProperty Name="p_status" ColumnName="p_status" />
-          <ScalarProperty Name="p_img" ColumnName="p_img" />
-          <ScalarProperty Name="p_desc" ColumnName="p_desc" />
-          <ScalarProperty Name="product_price" ColumnName="product_price" />
-          <ScalarProperty Name="p_name" ColumnName="p_name" />
-          <ScalarProperty Name="p_id" ColumnName="p_id" />
+    <EntitySetMapping Name="childProducts">
+      <EntityTypeMapping TypeName="tipltraineeModel.childProduct">
+        <MappingFragment StoreEntitySet="childProduct">
+          <ScalarProperty Name="pid" ColumnName="pid" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="pname" ColumnName="pname" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

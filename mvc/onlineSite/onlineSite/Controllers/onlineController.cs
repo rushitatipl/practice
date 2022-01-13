@@ -15,7 +15,7 @@ namespace onlineSite.Controllers
     {
         // GET: online
         [Authorize]
-        public ActionResult Index(productt pro)
+        public ActionResult Index(product pro)
         {
             TempData["Category"] = pro;
             TimeZoneInfo timeZoneInfo;
@@ -25,14 +25,15 @@ namespace onlineSite.Controllers
             //Get date and time
             ViewBag.dateTime = TimeZoneInfo.ConvertTime(DateTime.Now, timeZoneInfo);
             // return View();
-           // GetIPAddress2();
+            // GetIPAddress2();
+           
             string ip = Request.UserHostAddress;
             ViewBag.ip = ip;
             using (DbModel db = new DbModel())
             
             {
                
-                return View(db.productts.ToList());
+                return View(db.products.ToList());
             }
            
         }
@@ -69,22 +70,22 @@ namespace onlineSite.Controllers
            // productModel productModel = new productModel();
             if (Session["cart"] == null)
             {
-                List<productt> cart = new List<productt>();
-               
-                cart.Add(db.productts.Where(a=>a.p_id==id).FirstOrDefault());
+                List<Item> cart = new List<Item>();
+                cart.Add(new Item{Product1 = db.products.Find(id), Quantity = 1}) ;
+               // cart.Add(db.productts.Where(a=>a.p_id==id).FirstOrDefault());
                Session["cart"] = cart;
             }
             else
             {
-                List<productt> cart = (List<productt>)Session["cart"];
+                List<Item> cart = (List<Item>)Session["cart"];
                 int index = isExist(id);
                 if (index != -1)
                 {
-                    //cart[index].Quantity++;
+                    cart[index].Quantity++;
                 }
                 else
                 {
-                    cart.Add(db.productts.Where(a => a.p_id == id).FirstOrDefault());
+                    cart.Add(new Item { Product1 = db.products.Find(id), Quantity = 1 });
                 }
                 Session["cart"] = cart;
             }
@@ -92,19 +93,31 @@ namespace onlineSite.Controllers
             return View();
         }
         public ActionResult Remove(int id)
+        
+            
+   
         {
-            List<productt> cart = (List<productt>)Session["cart"];
+            List<Item> cart = (List<Item>)Session["cart"];
             int index = isExist(id);
-            cart.RemoveAt(index);
-            Session["cart"] = cart;
-            //return RedirectToAction("Buy");
+            if (index != 1)
+            {
+                cart[index].Quantity--;
+                
+            }
+            else
+            {
+                cart.RemoveAt(index);
+                Session["cart"] = cart;
+                //return RedirectToAction("Buy");
+                return View("Buy");
+            }
             return View("Buy");
-        }
+        }   
         private int isExist(int id)
         {
-            List<productt> cart = (List<productt>)Session["cart"];
+            List<Item> cart = (List<Item>)Session["cart"];
             for (int i = 0; i < cart.Count; i++)
-                if (cart[i].p_id.Equals(id))
+                if (cart[i].Product1.p_id.Equals(id))
                     return i;
             return -1;
         }
@@ -286,7 +299,7 @@ namespace onlineSite.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult CreateLogin(Login1 reg, string ReturnUrl)
         {
-
+            customer_reg creg = new customer_reg();
             string Message = "";
             using (DbModel db = new DbModel())
             {
@@ -302,6 +315,7 @@ namespace onlineSite.Controllers
                         cookie.Expires = DateTime.Now.AddMinutes(timeout);
                         cookie.HttpOnly = true;
                         Response.Cookies.Add(cookie);
+                        Session["user"] = reg.email;
 
                         if (Url.IsLocalUrl(ReturnUrl))
                         {

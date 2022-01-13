@@ -78,3 +78,9 @@ D:\github\practice\mvc\Tipl___Api\Mvc\obj\Debug\Mvc.csproj.CoreCompileInputs.cac
 D:\github\practice\mvc\Tipl___Api\Mvc\obj\Debug\Mvc.csproj.CopyComplete
 D:\github\practice\mvc\Tipl___Api\Mvc\obj\Debug\Mvc.dll
 D:\github\practice\mvc\Tipl___Api\Mvc\obj\Debug\Mvc.pdb
+D:\github\practice\mvc\Tipl___Api\Mvc\obj\Debug\Mvc.csproj.AssemblyReference.cache
+D:\github\practice\mvc\Tipl___Api\Mvc\bin\System.Web.Cors.dll
+D:\github\practice\mvc\Tipl___Api\Mvc\bin\System.Web.Http.Cors.dll
+D:\github\practice\mvc\Tipl___Api\Mvc\bin\System.Web.Http.dll
+D:\github\practice\mvc\Tipl___Api\Mvc\bin\System.Web.Http.xml
+D:\github\practice\mvc\Tipl___Api\Mvc\bin\System.Web.Http.Cors.xml

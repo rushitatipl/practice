@@ -7,7 +7,8 @@ namespace onlineSite.Models
 {
     public class Item
     {
-        public product pro { get; set; }
-        public int quantity { get; set; }
+        public product Product1 { get; set; }
+
+        public int Quantity { get; set; }
     }
 }

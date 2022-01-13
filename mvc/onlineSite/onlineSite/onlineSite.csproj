@@ -131,7 +131,6 @@
     <Compile Include="Controllers\aadminController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\Item.cs" />
     <Compile Include="Controllers\onlineController.cs" />
     <Compile Include="Crypto.cs" />
     <Compile Include="Global.asax.cs">
@@ -145,6 +144,9 @@
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\category.cs">
+      <DependentUpon>DbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\childProduct.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\contactU.cs">
@@ -170,6 +172,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DbModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\emp.cs" />
+    <Compile Include="Models\empcontext.cs" />
     <Compile Include="Models\extend\customer_reg.cs" />
     <Compile Include="Models\feedbake.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
@@ -190,9 +194,6 @@
     </Compile>
     <Compile Include="Models\productDetail.cs" />
     <Compile Include="Models\productModel.cs" />
-    <Compile Include="Models\productt.cs">
-      <DependentUpon>DbModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ResetPasswordModel.cs" />
     <Compile Include="Models\role.cs">
       <DependentUpon>DbModel.tt</DependentUpon>
@@ -308,7 +309,6 @@
     <Content Include="Image\lg.jfif" />
     <Content Include="Image\oppo.png" />
     <Content Include="Image\samsung.png" />
-    <Content Include="Image\samsung2.png" />
     <Content Include="Models\DbModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>DbModel.Context.cs</LastGenOutput>
@@ -394,8 +394,8 @@
     <Content Include="Views\online\details.cshtml" />
     <Content Include="Views\aadmin\details.cshtml" />
     <Content Include="Views\aadmin\prod.cshtml" />
-    <Content Include="Views\online\Buy.cshtml" />
     <Content Include="Views\online\addtocart.cshtml" />
+    <Content Include="Views\online\Buy.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Image\" />

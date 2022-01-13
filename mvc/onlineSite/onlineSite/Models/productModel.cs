@@ -8,60 +8,20 @@ namespace onlineSite.Models
 {
     public class productModel
     {
-        //List<product> pd = new List<product>();
-        //public List<product> pro { get; set; }
+        public int p_id { get; set; }
+        public string p_name { get; set; }
+        public Nullable<int> product_price { get; set; }
+        public string p_desc { get; set; }
+        public string p_img { get; set; }
+        public string p_status { get; set; }
+        public int category_id { get; set; }
+        public byte[] createddate { get; set; }
+        public int quantity { get; set; }
 
-        private List<product> products;
-
-        public productModel()
-        {
-            this.products = new List<product>() {
-                new product {
-                    p_id = 1,
-                    p_name = "Name 1",
-                    product_price=10,
-                    p_desc="lkj",
-                    p_status="1",
-                    category_id=2,
-                    p_img="asd",
-                    quantity=1
-
-                  
-                },
-                new product {
-                     p_id = 2,
-                    p_name = "Name 1",
-                    product_price=10,
-                    p_desc="lkj",
-                    p_status="1",
-                    category_id=1,
-                    p_img="asd",
-                    quantity=1
-
-                },
-                new product {
-                     p_id = 3,
-                    p_name = "Name 1",
-                    product_price=10,
-                    p_desc="lkj",
-                    p_status="1",
-                    category_id=1,
-                    p_img="asd",
-                    quantity=1
-
-                }
-            };
-        }
-
-        public List<product> findAll()
-        {
-            return this.products;
-        }
-
-        public product find(string id)
-        {
-            return this.products.First(p => p.p_id.Equals(id));
-        }
-
+        //child product data
+        public int id { get; set; }
+        public string pname { get; set; }
+        public string image { get; set; }
+        public int pid { get; set; }
     }
 }

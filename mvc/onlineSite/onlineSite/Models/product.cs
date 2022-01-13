@@ -21,7 +21,7 @@ namespace onlineSite.Models
         public string p_img { get; set; }
         public string p_status { get; set; }
         public int category_id { get; set; }
-        public byte[] createddate { get; set; }
+        public System.DateTime createddate { get; set; }
         public int quantity { get; set; }
     }
 }

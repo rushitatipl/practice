@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Net.Http.Headers;
+using System.Web.Http.Cors;
 
 namespace Tipl___Api
 {

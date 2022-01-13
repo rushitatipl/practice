@@ -1,8 +1,10 @@
-﻿@model List<onlineSite.Models.productt>
+﻿
 @{
     ViewBag.Title = "Buy";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Buy</h2>
 
 <h2>Buy</h2>
 
@@ -28,36 +30,42 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (productt item in (List<productt>)Session["cart"])
+                                @foreach (Item item in (List<Item>)Session["cart"])
+
                                 {
                                     <tr>
                                         <td class="thumbnail-img">
                                             <a href="#">
-                                                <img src="~/Image/@item.p_img" width="100px" height="100px" />
+                                                <img src="~/Image/@item.Product1.p_img" width="100px" height="100px" />
 
                                             </a>
-                                        </td>
+                                    </td>
                                         <td class="name-pr">
                                             <a href="#">
-                                                @item.p_name
+                                                @item.Product1.p_name
                                             </a>
                                         </td>
                                         <td id="price" class="price-pr">
-                                            <p id="price" oninput="calc()">   @item.product_price</p>
+                                            <p id="price" oninput="calc()">   @item.Product1.product_price</p>
                                         </td>
-                                        <td class="quantity-box"><input name="number" id="num" oninput="calc()" type="number" size="4" value="1" min="0" step="1" class="c-input-text qty text"></td>
+                                        <td class="quantity-box">
+                                            <a href="#">
+                                                @item.Quantity
+                                            </a>@*<input name="number" id="num" oninput="calc()" type="number" size="4" value=" @item.Quantity" min="0" step="1" class="c-input-text qty text">
+                                        </td>*@
                                         <td class="total-pr">
-                                            <p id="totalprice" oninput="calc()">0</p>
+                                            <p id="totalprice" oninput="calc()"> @(item.Product1.product_price*item.Quantity) </p>
                                         </td>
                                         <td class="remove-pr">
                                         <td>
-                                            <a href="@Url.Action("Remove", "online", new { id = item.p_id })">
-                                          
+                                            <a href="@Url.Action("Remove", "online", new { id = item.Product1.p_id })">
+
                                                 <i class="fas fa-times"></i>
                                             </a>
                                         </td>
                                     </tr>
                                 }
+                               
                             </tbody>
                         </table>
                     </div>
@@ -89,29 +97,18 @@
                         <h3>Order summary</h3>
                         <div class="d-flex">
                             <h4>Sub Total</h4>
-                            <div class="ml-auto font-weight-bold"> $ 130 </div>
+                            <div class="ml-auto font-weight-bold">
+                                @{
+                                    List<Item> cart = (List<Item>)Session["cart"];
+                                    var total = cart.Sum(item => item.Product1.product_price * item.Quantity);
+                                }   @total
+                            </div>
                         </div>
-                        <div class="d-flex">
-                            <h4>Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 40 </div>
-                        </div>
-                        <hr class="my-1">
-                        <div class="d-flex">
-                            <h4>Coupon Discount</h4>
-                            <div class="ml-auto font-weight-bold"> $ 10 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Tax</h4>
-                            <div class="ml-auto font-weight-bold"> $ 2 </div>
-                        </div>
-                        <div class="d-flex">
-                            <h4>Shipping Cost</h4>
-                            <div class="ml-auto font-weight-bold"> Free </div>
-                        </div>
+                       
                         <hr>
                         <div class="d-flex gr-total">
                             <h5>Grand Total</h5>
-                            <div class="ml-auto h5"> $ 388 </div>
+                            <div class="ml-auto h5">  @total </div>
                         </div>
                         <hr>
                     </div>

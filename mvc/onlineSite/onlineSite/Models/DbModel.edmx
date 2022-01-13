@@ -33,6 +33,15 @@
           <Property Name="parent_category_id" Type="int" Nullable="false" />
           <Property Name="category_status" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
+        <EntityType Name="childProduct">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pid" Type="int" Nullable="false" />
+          <Property Name="pname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="contactUs">
           <Key>
             <PropertyRef Name="contactId" />
@@ -105,21 +114,7 @@
           <Property Name="p_img" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="p_status" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="category_id" Type="int" Nullable="false" />
-          <Property Name="createddate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-          <Property Name="quantity" Type="int" Nullable="false" />
-        </EntityType>
-        <EntityType Name="productt">
-          <Key>
-            <PropertyRef Name="p_id" />
-          </Key>
-          <Property Name="p_id" Type="int" Nullable="false" />
-          <Property Name="p_name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="product_price" Type="float" Nullable="false" />
-          <Property Name="p_desc" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="p_img" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="p_status" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="category_id" Type="int" Nullable="false" />
-          <Property Name="createddate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="createddate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
           <Property Name="quantity" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="roles">
@@ -148,6 +143,7 @@
           <EntitySet Name="cart" EntityType="Self.cart" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="cartstatus" EntityType="Self.cartstatus" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="category" EntityType="Self.category" Schema="trainee" store:Type="Tables" />
+          <EntitySet Name="childProduct" EntityType="Self.childProduct" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="contactUs" EntityType="Self.contactUs" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="customer_reg" EntityType="Self.customer_reg" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="feedbake" EntityType="Self.feedbake" Schema="trainee" store:Type="Tables" />
@@ -155,7 +151,6 @@
           <EntitySet Name="memberrole" EntityType="Self.memberrole" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="poll" EntityType="Self.poll" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="product" EntityType="Self.product" Schema="trainee" store:Type="Tables" />
-          <EntitySet Name="productt" EntityType="Self.productt" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="roles" EntityType="Self.roles" Schema="trainee" store:Type="Tables" />
           <EntitySet Name="shippingdetail" EntityType="Self.shippingdetail" Schema="trainee" store:Type="Tables" />
         </EntityContainer>
@@ -253,7 +248,7 @@
           <Property Name="p_img" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="p_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="category_id" Type="Int32" Nullable="false" />
-          <Property Name="createddate" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="createddate" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
           <Property Name="quantity" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="role">
@@ -291,7 +286,7 @@
           <EntitySet Name="roles" EntityType="Self.role" />
           <EntitySet Name="shippingdetails" EntityType="Self.shippingdetail" />
           <EntitySet Name="contactUs" EntityType="tipltraineeModel.contactU" />
-          <EntitySet Name="productts" EntityType="tipltraineeModel.productt" />
+          <EntitySet Name="childProducts" EntityType="tipltraineeModel.childProduct" />
         </EntityContainer>
         <EntityType Name="contactU">
           <Key>
@@ -303,19 +298,14 @@
           <Property Name="name" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="productt">
+        <EntityType Name="childProduct">
           <Key>
-            <PropertyRef Name="p_id" />
+            <PropertyRef Name="id" />
           </Key>
-          <Property Name="p_id" Type="Int32" Nullable="false" />
-          <Property Name="p_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="product_price" Type="Double" Nullable="false" />
-          <Property Name="p_desc" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="p_img" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="p_status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="category_id" Type="Int32" Nullable="false" />
-          <Property Name="createddate" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="pname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pid" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -460,18 +450,13 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="productts">
-            <EntityTypeMapping TypeName="tipltraineeModel.productt">
-              <MappingFragment StoreEntitySet="productt">
-                <ScalarProperty Name="quantity" ColumnName="quantity" />
-                <ScalarProperty Name="createddate" ColumnName="createddate" />
-                <ScalarProperty Name="category_id" ColumnName="category_id" />
-                <ScalarProperty Name="p_status" ColumnName="p_status" />
-                <ScalarProperty Name="p_img" ColumnName="p_img" />
-                <ScalarProperty Name="p_desc" ColumnName="p_desc" />
-                <ScalarProperty Name="product_price" ColumnName="product_price" />
-                <ScalarProperty Name="p_name" ColumnName="p_name" />
-                <ScalarProperty Name="p_id" ColumnName="p_id" />
+          <EntitySetMapping Name="childProducts">
+            <EntityTypeMapping TypeName="tipltraineeModel.childProduct">
+              <MappingFragment StoreEntitySet="childProduct">
+                <ScalarProperty Name="pid" ColumnName="pid" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="pname" ColumnName="pname" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

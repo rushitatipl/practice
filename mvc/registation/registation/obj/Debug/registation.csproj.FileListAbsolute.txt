@@ -1,0 +1,2 @@
+D:\github\practice\mvc\registation\registation\obj\Debug\registation.csproj.AssemblyReference.cache
+D:\github\practice\mvc\registation\registation\obj\Debug\registation.csproj.CoreCompileInputs.cache

@@ -28,6 +28,15 @@
     <Property Name="parent_category_id" Type="int" Nullable="false" />
     <Property Name="category_status" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="childProduct">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pid" Type="int" Nullable="false" />
+    <Property Name="pname" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="image" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="contactUs">
     <Key>
       <PropertyRef Name="contactId" />
@@ -100,21 +109,7 @@
     <Property Name="p_img" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="p_status" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="category_id" Type="int" Nullable="false" />
-    <Property Name="createddate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
-    <Property Name="quantity" Type="int" Nullable="false" />
-  </EntityType>
-  <EntityType Name="productt">
-    <Key>
-      <PropertyRef Name="p_id" />
-    </Key>
-    <Property Name="p_id" Type="int" Nullable="false" />
-    <Property Name="p_name" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="product_price" Type="float" Nullable="false" />
-    <Property Name="p_desc" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="p_img" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="p_status" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="category_id" Type="int" Nullable="false" />
-    <Property Name="createddate" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+    <Property Name="createddate" Type="datetime" Nullable="false" StoreGeneratedPattern="Computed" />
     <Property Name="quantity" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="roles">
@@ -143,6 +138,7 @@
     <EntitySet Name="cart" EntityType="Self.cart" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="cartstatus" EntityType="Self.cartstatus" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="category" EntityType="Self.category" Schema="trainee" store:Type="Tables" />
+    <EntitySet Name="childProduct" EntityType="Self.childProduct" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="contactUs" EntityType="Self.contactUs" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="customer_reg" EntityType="Self.customer_reg" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="feedbake" EntityType="Self.feedbake" Schema="trainee" store:Type="Tables" />
@@ -150,7 +146,6 @@
     <EntitySet Name="memberrole" EntityType="Self.memberrole" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="poll" EntityType="Self.poll" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="product" EntityType="Self.product" Schema="trainee" store:Type="Tables" />
-    <EntitySet Name="productt" EntityType="Self.productt" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="roles" EntityType="Self.roles" Schema="trainee" store:Type="Tables" />
     <EntitySet Name="shippingdetail" EntityType="Self.shippingdetail" Schema="trainee" store:Type="Tables" />
   </EntityContainer>

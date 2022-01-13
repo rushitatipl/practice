@@ -12,7 +12,7 @@ namespace StudLogin.Controllers
         // GET: log
         public ActionResult Index()
         {
-            using () { }
+           
             return View();
         }
 

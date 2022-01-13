@@ -1,0 +1,2 @@
+D:\github\practice\mvc\myProject\myProject\obj\Debug\myProject.csproj.AssemblyReference.cache
+D:\github\practice\mvc\myProject\myProject\obj\Debug\myProject.csproj.CoreCompileInputs.cache
